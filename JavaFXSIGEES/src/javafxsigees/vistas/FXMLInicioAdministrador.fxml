@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="840.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLInicioAdministradorController">
+   <children>
+      <Label layoutX="120.0" layoutY="39.0" text="Administrador" textFill="#676767">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="33.0" />
+         </font>
+      </Label>
+      <Button layoutX="924.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarUsuarios" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Usuarios">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="117.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarTarjetas" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Tarjetas">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
+         </effect>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="117.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicAdministrarCuotas" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Cuotas">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
+         </effect>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="924.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicConsultarHistorico" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Consultar Histórcio del Día">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
+         </effect>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
