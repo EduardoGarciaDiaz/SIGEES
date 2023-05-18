@@ -15,7 +15,7 @@
             <Font name="Microsoft New Tai Lue Bold" size="33.0" />
          </font>
       </Label>
-      <Button layoutX="924.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarUsuarios" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Usuarios">
+      <Button fx:id="btnInicio" layoutX="924.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarUsuarios" onMouseEntered="#sobreTarjeta" onMouseExited="#fueraTarjeta" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Usuarios">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="24.0" />
          </font>
@@ -26,7 +26,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="117.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarTarjetas" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Tarjetas">
+      <Button layoutX="117.0" layoutY="108.0" mnemonicParsing="false" onAction="#clicAdministrarTarjetas" onMouseEntered="#sobreTarjeta" onMouseExited="#fueraTarjeta" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Tarjetas">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="117.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicAdministrarCuotas" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Cuotas">
+      <Button layoutX="117.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicAdministrarCuotas" onMouseEntered="#sobreTarjeta" onMouseExited="#fueraTarjeta" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Cuotas">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
@@ -48,7 +48,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="924.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicConsultarHistorico" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Consultar Histórcio del Día">
+      <Button layoutX="924.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicConsultarHistorico" onMouseEntered="#sobreTarjeta" onMouseExited="#fueraTarjeta" prefHeight="302.0" prefWidth="687.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Consultar Histórcio del Día">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
