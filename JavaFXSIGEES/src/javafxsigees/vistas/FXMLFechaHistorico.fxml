@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLFechaHistoricoController">
+   <children>
+      <Label layoutX="130.0" layoutY="49.0" text="Histórico del día" textFill="#676767" AnchorPane.leftAnchor="120.0">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="226.0" layoutY="120.0" text="Selecciona la fecha que deseas consultar:" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpFecha" layoutX="277.0" layoutY="164.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" />
+      <Button layoutX="291.0" layoutY="480.0" mnemonicParsing="false" onAction="#clicGenerarHistorico" prefHeight="72.0" prefWidth="330.0" style="-fx-background-color: #4383FE; -fx-background-radius: 13px;" text="Generar histórico" textFill="WHITE">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#0000008f" height="47.44" radius="23.6075" width="48.99" />
+         </effect></Button>
+      <Label fx:id="lbErrorFecha" layoutX="337.0" layoutY="202.0" textAlignment="CENTER" textFill="#c62222">
+         <font>
+            <Font name="Dubai Regular" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

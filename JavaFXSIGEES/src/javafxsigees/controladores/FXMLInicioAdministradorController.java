@@ -6,18 +6,27 @@
 
 package javafxsigees.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafxsigees.utils.Utilidades;
 
 public class FXMLInicioAdministradorController implements Initializable {
 
     @FXML
-    private Button btnInicio;
+    private Label lbAdministrador;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -26,41 +35,50 @@ public class FXMLInicioAdministradorController implements Initializable {
 
     @FXML
     private void clicAdministrarTarjetas(ActionEvent event) {
-        System.out.println("No disponible por el momento");
-        
+        Utilidades.mostrarDialogoSimple("Funcionalidad No disponible",
+                "Por ahora esta funcionalidad no está disponible. Inténtelo en la próxima actualización",
+                Alert.AlertType.INFORMATION);
     }
 
     @FXML
     private void clicAdministrarUsuarios(ActionEvent event) {
-        System.out.println("No disponible por el momento");    }
+        Utilidades.mostrarDialogoSimple("Funcionalidad No disponible",
+                "Por ahora esta funcionalidad no está disponible. Inténtelo en la próxima actualización",
+                Alert.AlertType.INFORMATION);
+    }
 
     @FXML
     private void clicAdministrarCuotas(ActionEvent event) {
-        System.out.println("No disponible por el momento");
+        Utilidades.mostrarDialogoSimple("Funcionalidad No disponible",
+                "Por ahora esta funcionalidad no está disponible. Inténtelo en la próxima actualización",
+                Alert.AlertType.INFORMATION);
     }
 
     @FXML
     private void clicConsultarHistorico(ActionEvent event) {
-        //TODO
+            Stage  escenarioBase = new Stage();
+            escenarioBase.setScene(Utilidades.inicializarEscena("vistas/FXMLFechaHistorico.fxml"));
+            escenarioBase.setTitle("Consultar histórico");
+            escenarioBase.initModality(Modality.APPLICATION_MODAL);
+            escenarioBase.showAndWait();
+        
     }
     
     @FXML
-    private void sobreTarjeta(MouseEvent event) {
-        Button b = (Button) event.getSource();
-        b.setStyle("-fx-background-color:#dae7f3;");
-        b.setScaleX(1.02);
-        b.setScaleY(1.02);
+    private void sobreBoton(MouseEvent event) {
+        Button botonInicioAdmin = (Button) event.getSource();
+        botonInicioAdmin.setStyle("-fx-background-color:#dae7f3; -fx-background-radius: 13px;");
+        botonInicioAdmin.setScaleX(1.04);
+        botonInicioAdmin.setScaleY(1.04);
          
     }
 
     @FXML
-    private void fueraTarjeta(MouseEvent event) {
-        Button b = (Button) event.getSource();
-        b.setStyle("-fx-background-color: #FFFFFF; -fx-background-radius: 13px;");
-        b.setScaleX(1);
-        b.setScaleY(1);
+    private void fueraBoton(MouseEvent event) {
+        Button botonInicioAdmin = (Button) event.getSource();
+        botonInicioAdmin.setStyle("-fx-background-color: #FFFFFF; -fx-background-radius: 13px;");
+        botonInicioAdmin.setScaleX(1);
+        botonInicioAdmin.setScaleY(1);
     }
 
-    
-    
 }
