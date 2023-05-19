@@ -60,7 +60,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="panePisoUno" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0" visible="false">
+            <Pane fx:id="panePisoUno" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0">
                <children>
                   <Rectangle fx:id="cajonA13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
                   <Rectangle fx:id="cajonA12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
@@ -192,7 +192,7 @@
                   <Label layoutX="928.0" layoutY="225.0" text="A30" textAlignment="CENTER" />
                   <Label layoutX="1000.0" layoutY="225.0" text="A29" textAlignment="CENTER" />
                </children></Pane>
-            <Pane fx:id="panePisoDos" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0">
+            <Pane fx:id="panePisoDos" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0" visible="false">
                <children>
                   <Rectangle fx:id="cajonB13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
                   <Rectangle fx:id="cajonB12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
