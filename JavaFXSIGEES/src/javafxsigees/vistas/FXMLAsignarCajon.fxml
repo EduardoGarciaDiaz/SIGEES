@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="940.0" prefWidth="1728.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLAsignarCajonController">
+   <children>
+      <Pane fx:id="paneCajonNoSeleccionado" layoutX="1266.0" layoutY="108.0" prefHeight="800.0" prefWidth="426.0" style="-fx-background-color: white; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.25), 25, 0.0, 0.0, 4); -fx-border-radius: 13; -fx-background-radius: 13;">
+         <children>
+            <Label layoutX="84.0" layoutY="334.0" prefHeight="80.0" prefWidth="280.0" style="-fx-text-alignment: center;" text="Selecciona un cajón para asignar" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="194.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../recursos/alerta.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="42.0" layoutY="109.0" prefHeight="800.0" prefWidth="1182.0" style="-fx-background-color: white; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.25), 25, 0.0, 0.0, 4); -fx-border-radius: 13; -fx-background-radius: 13;">
+         <children>
+            <Pane fx:id="pnBtnPisoUno" onMouseClicked="#clicBtnPisoUno" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9; -fx-border-radius: 13, 0, 0, 0;">
+               <children>
+                  <Label layoutX="76.0" layoutY="12.0" text="Piso 1">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnBtnPisoDos" layoutX="198.0" onMouseClicked="#clicBtnPisoDos" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9;">
+               <children>
+                  <Label layoutX="76.0" layoutY="12.0" text="Piso 2">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnBtnPisoTres" layoutX="398.0" onMouseClicked="#clicBtnPisoTres" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9;">
+               <children>
+                  <Label layoutX="76.0" layoutY="12.0" text="Piso 3">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnBtnPisoCuatro" layoutX="598.0" onMouseClicked="#clicBtnPisoCuatro" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #f9f9f9;">
+               <children>
+                  <Label layoutX="76.0" layoutY="12.0" text="Piso 4">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="panePisoUno" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0" visible="false">
+               <children>
+                  <Rectangle fx:id="cajonA13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA11" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="257.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA10" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="330.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA9" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="403.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA8" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="476.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA7" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="549.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA6" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="622.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA3" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="841.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA2" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="914.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA5" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="695.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA4" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="768.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA14" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="38.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Line endX="500.0" layoutX="546.0" layoutY="716.0" startX="145.0" stroke="#b8b8b8" />
+                  <Label layoutX="812.0" layoutY="720.0" text="De uso reservado" />
+                  <Line endX="125.0" layoutX="556.0" layoutY="716.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Rectangle fx:id="cajonA15" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA25" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA24" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA27" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA26" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA23" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA22" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA21" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA20" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA19" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA18" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA17" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA16" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA41" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA40" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA39" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA38" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA37" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA36" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA35" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA34" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA31" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA30" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA33" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA32" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA42" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA43" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA29" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA1" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="616.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA50" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA49" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA48" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA47" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA46" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA45" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA44" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA53" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="708.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA54" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="752.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA56" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA55" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="796.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA59" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="971.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA58" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="927.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA57" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="883.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA28" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonA60" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1014.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA61" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1058.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA62" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1102.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="368.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Line endX="570.0" layoutX="556.0" layoutY="29.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Label layoutX="1003.0" layoutY="583.0" text="A1" textAlignment="CENTER" />
+                  <Label layoutX="930.0" layoutY="583.0" text="A2" textAlignment="CENTER" />
+                  <Label layoutX="860.0" layoutY="583.0" text="A3" textAlignment="CENTER" />
+                  <Label layoutX="788.5" layoutY="583.0" text="A4" textAlignment="CENTER" />
+                  <Label layoutX="711.5" layoutY="582.0" text="A5" textAlignment="CENTER" />
+                  <Label layoutX="640.5" layoutY="582.0" text="A6" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="582.0" text="A10" textAlignment="CENTER" />
+                  <Label layoutX="419.0" layoutY="582.0" text="A9" textAlignment="CENTER" />
+                  <Label layoutX="494.0" layoutY="583.0" text="A8" textAlignment="CENTER" />
+                  <Label layoutX="568.0" layoutY="583.0" text="A7" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="581.0" text="A14" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="581.0" text="A13" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="582.0" text="A12" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="582.0" text="A11" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="499.0" text="A18" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="499.0" text="A17" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="498.0" text="A16" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="498.0" text="A15" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="499.0" text="A19" textAlignment="CENTER" />
+                  <Label layoutX="708.0" layoutY="498.0" text="A24" textAlignment="CENTER" />
+                  <Label layoutX="415.0" layoutY="498.0" text="A20" textAlignment="CENTER" />
+                  <Label layoutX="487.0" layoutY="498.0" text="A21" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="498.0" text="A22" textAlignment="CENTER" />
+                  <Label layoutX="634.0" layoutY="498.0" text="A23" textAlignment="CENTER" />
+                  <Label layoutX="711.0" layoutY="145.0" text="A53" textAlignment="CENTER" />
+                  <Label layoutX="756.0" layoutY="145.0" text="A54" textAlignment="CENTER" />
+                  <Label layoutX="801.0" layoutY="145.0" text="A55" textAlignment="CENTER" />
+                  <Label layoutX="844.0" layoutY="145.0" text="A56" textAlignment="CENTER" />
+                  <Label layoutX="1021.0" layoutY="144.0" text="A60" textAlignment="CENTER" />
+                  <Label layoutX="978.0" layoutY="144.0" text="A59" textAlignment="CENTER" />
+                  <Label layoutX="933.0" layoutY="144.0" text="A58" textAlignment="CENTER" />
+                  <Label layoutX="888.0" layoutY="144.0" text="A57" textAlignment="CENTER" />
+                  <Label layoutX="1062.0" layoutY="144.0" text="A61" textAlignment="CENTER" />
+                  <Label layoutX="1105.0" layoutY="144.0" text="A62" textAlignment="CENTER" />
+                  <Label layoutX="785.0" layoutY="498.0" text="A25" textAlignment="CENTER" />
+                  <Label layoutX="857.0" layoutY="498.0" text="A26" textAlignment="CENTER" />
+                  <Label layoutX="932.0" layoutY="498.0" text="A27" textAlignment="CENTER" />
+                  <Label layoutX="1004.0" layoutY="498.0" text="A28" textAlignment="CENTER" />
+                  <Label layoutX="486.0" layoutY="144.0" text="A49" textAlignment="CENTER" />
+                  <Label layoutX="414.0" layoutY="144.0" text="A48" textAlignment="CENTER" />
+                  <Label layoutX="339.0" layoutY="144.0" text="A47" textAlignment="CENTER" />
+                  <Label layoutX="267.0" layoutY="144.0" text="A46" textAlignment="CENTER" />
+                  <Label layoutX="560.0" layoutY="144.0" text="A50" textAlignment="CENTER" />
+                  <Label layoutX="197.0" layoutY="145.0" text="A45" textAlignment="CENTER" />
+                  <Label layoutX="51.0" layoutY="145.0" text="A43" textAlignment="CENTER" />
+                  <Label layoutX="123.0" layoutY="145.0" text="A44" textAlignment="CENTER" />
+                  <Label layoutX="669.0" layoutY="145.0" text="A52" textAlignment="CENTER" />
+                  <Label layoutX="624.0" layoutY="145.0" text="A51" textAlignment="CENTER" />
+                  <Rectangle fx:id="cajonA52" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="665.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonA51" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Label layoutX="856.0" layoutY="226.0" text="A31" textAlignment="CENTER" />
+                  <Label layoutX="784.0" layoutY="226.0" text="A32" textAlignment="CENTER" />
+                  <Label layoutX="709.0" layoutY="226.0" text="A33" textAlignment="CENTER" />
+                  <Label layoutX="639.0" layoutY="226.0" text="A34" textAlignment="CENTER" />
+                  <Label layoutX="488.0" layoutY="226.0" text="A36" textAlignment="CENTER" />
+                  <Label layoutX="416.0" layoutY="226.0" text="A37" textAlignment="CENTER" />
+                  <Label layoutX="341.0" layoutY="226.0" text="A38" textAlignment="CENTER" />
+                  <Label layoutX="269.0" layoutY="226.0" text="A39" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="226.0" text="A35" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="227.0" text="A40" textAlignment="CENTER" />
+                  <Label layoutX="53.0" layoutY="227.0" text="A42" textAlignment="CENTER" />
+                  <Label layoutX="125.0" layoutY="227.0" text="A41" textAlignment="CENTER" />
+                  <Label layoutX="928.0" layoutY="225.0" text="A30" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="225.0" text="A29" textAlignment="CENTER" />
+               </children></Pane>
+            <Pane fx:id="panePisoDos" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0">
+               <children>
+                  <Rectangle fx:id="cajonB13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB11" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="257.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB10" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="330.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB9" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="403.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB8" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="476.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB7" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="549.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB6" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="622.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB3" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="841.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB2" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="914.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB5" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="695.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB4" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="768.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB14" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="38.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="716.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Rectangle fx:id="cajonB15" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB25" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB24" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB27" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB26" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB23" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB22" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB21" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB20" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB19" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB18" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB17" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB16" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB41" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB40" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB39" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB38" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB37" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB36" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB35" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB34" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB31" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB30" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB33" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB32" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB42" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB43" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB29" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB1" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="616.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB50" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB49" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB48" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB47" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB46" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB45" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB44" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB53" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="708.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB54" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="752.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB56" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB55" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="796.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB59" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="971.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB58" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="927.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB57" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="883.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB28" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonB60" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1014.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB61" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1058.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB62" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1102.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="368.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Line endX="570.0" layoutX="556.0" layoutY="29.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Label layoutX="1003.0" layoutY="583.0" text="B1" textAlignment="CENTER" />
+                  <Label layoutX="930.0" layoutY="583.0" text="B2" textAlignment="CENTER" />
+                  <Label layoutX="860.0" layoutY="583.0" text="B3" textAlignment="CENTER" />
+                  <Label layoutX="788.5" layoutY="583.0" text="B4" textAlignment="CENTER" />
+                  <Label layoutX="711.5" layoutY="582.0" text="B5" textAlignment="CENTER" />
+                  <Label layoutX="640.5" layoutY="582.0" text="B6" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="582.0" text="B10" textAlignment="CENTER" />
+                  <Label layoutX="419.0" layoutY="582.0" text="B9" textAlignment="CENTER" />
+                  <Label layoutX="494.0" layoutY="583.0" text="B8" textAlignment="CENTER" />
+                  <Label layoutX="568.0" layoutY="583.0" text="B7" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="581.0" text="B14" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="581.0" text="B13" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="582.0" text="B12" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="582.0" text="B11" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="499.0" text="B18" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="499.0" text="B17" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="498.0" text="B16" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="498.0" text="B15" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="499.0" text="B19" textAlignment="CENTER" />
+                  <Label layoutX="708.0" layoutY="498.0" text="B24" textAlignment="CENTER" />
+                  <Label layoutX="415.0" layoutY="498.0" text="B20" textAlignment="CENTER" />
+                  <Label layoutX="487.0" layoutY="498.0" text="B21" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="498.0" text="B22" textAlignment="CENTER" />
+                  <Label layoutX="634.0" layoutY="498.0" text="B23" textAlignment="CENTER" />
+                  <Label layoutX="711.0" layoutY="145.0" text="B53" textAlignment="CENTER" />
+                  <Label layoutX="756.0" layoutY="145.0" text="B54" textAlignment="CENTER" />
+                  <Label layoutX="801.0" layoutY="145.0" text="B55" textAlignment="CENTER" />
+                  <Label layoutX="844.0" layoutY="145.0" text="B56" textAlignment="CENTER" />
+                  <Label layoutX="1021.0" layoutY="144.0" text="B60" textAlignment="CENTER" />
+                  <Label layoutX="978.0" layoutY="144.0" text="B59" textAlignment="CENTER" />
+                  <Label layoutX="933.0" layoutY="144.0" text="B58" textAlignment="CENTER" />
+                  <Label layoutX="888.0" layoutY="144.0" text="B57" textAlignment="CENTER" />
+                  <Label layoutX="1062.0" layoutY="144.0" text="B61" textAlignment="CENTER" />
+                  <Label layoutX="1105.0" layoutY="144.0" text="B62" textAlignment="CENTER" />
+                  <Label layoutX="785.0" layoutY="498.0" text="B25" textAlignment="CENTER" />
+                  <Label layoutX="857.0" layoutY="498.0" text="B26" textAlignment="CENTER" />
+                  <Label layoutX="927.0" layoutY="498.0" text="B27" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="498.0" text="B28" textAlignment="CENTER" />
+                  <Label layoutX="489.0" layoutY="144.0" text="B49" textAlignment="CENTER" />
+                  <Label layoutX="417.0" layoutY="144.0" text="B48" textAlignment="CENTER" />
+                  <Label layoutX="344.0" layoutY="144.0" text="B47" textAlignment="CENTER" />
+                  <Label layoutX="270.0" layoutY="144.0" text="B46" textAlignment="CENTER" />
+                  <Label layoutX="564.0" layoutY="144.0" text="B50" textAlignment="CENTER" />
+                  <Label layoutX="197.0" layoutY="145.0" text="B45" textAlignment="CENTER" />
+                  <Label layoutX="51.0" layoutY="145.0" text="B43" textAlignment="CENTER" />
+                  <Label layoutX="123.0" layoutY="145.0" text="B44" textAlignment="CENTER" />
+                  <Label layoutX="669.0" layoutY="145.0" text="B52" textAlignment="CENTER" />
+                  <Label layoutX="622.0" layoutY="145.0" text="B51" textAlignment="CENTER" />
+                  <Rectangle fx:id="cajonB52" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="665.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonB51" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Label layoutX="856.0" layoutY="226.0" text="B31" textAlignment="CENTER" />
+                  <Label layoutX="784.0" layoutY="226.0" text="B32" textAlignment="CENTER" />
+                  <Label layoutX="709.0" layoutY="226.0" text="B33" textAlignment="CENTER" />
+                  <Label layoutX="639.0" layoutY="226.0" text="B34" textAlignment="CENTER" />
+                  <Label layoutX="488.0" layoutY="226.0" text="B36" textAlignment="CENTER" />
+                  <Label layoutX="416.0" layoutY="226.0" text="B37" textAlignment="CENTER" />
+                  <Label layoutX="341.0" layoutY="226.0" text="B38" textAlignment="CENTER" />
+                  <Label layoutX="269.0" layoutY="226.0" text="B39" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="226.0" text="B35" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="227.0" text="B40" textAlignment="CENTER" />
+                  <Label layoutX="53.0" layoutY="227.0" text="B42" textAlignment="CENTER" />
+                  <Label layoutX="125.0" layoutY="227.0" text="B41" textAlignment="CENTER" />
+                  <Label layoutX="928.0" layoutY="225.0" text="B30" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="225.0" text="B29" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane fx:id="panePisoTres" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0" visible="false">
+               <children>
+                  <Rectangle fx:id="cajonC13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC11" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="257.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC10" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="330.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC9" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="403.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC8" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="476.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC7" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="549.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC6" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="622.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC3" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="841.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC2" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="914.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC5" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="695.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC4" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="768.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC14" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="38.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="716.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Rectangle fx:id="cajonC15" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC25" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC24" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC27" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC26" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC23" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC22" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC21" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC20" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC19" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC18" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC17" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC16" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC41" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC40" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC39" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC38" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC37" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC36" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC35" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC34" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC31" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC30" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC33" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC32" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC42" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC43" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC29" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="263.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC1" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="616.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC50" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC49" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC48" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC47" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC46" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC45" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC44" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC53" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="708.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC54" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="752.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC56" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC55" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="796.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC59" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="971.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC58" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="927.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC57" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="883.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC28" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonC60" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1014.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC61" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1058.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC62" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1102.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="368.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Line endX="570.0" layoutX="556.0" layoutY="29.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Label layoutX="1003.0" layoutY="583.0" text="C1" textAlignment="CENTER" />
+                  <Label layoutX="930.0" layoutY="583.0" text="C2" textAlignment="CENTER" />
+                  <Label layoutX="860.0" layoutY="583.0" text="C3" textAlignment="CENTER" />
+                  <Label layoutX="788.5" layoutY="583.0" text="C4" textAlignment="CENTER" />
+                  <Label layoutX="711.5" layoutY="582.0" text="C5" textAlignment="CENTER" />
+                  <Label layoutX="640.5" layoutY="582.0" text="C6" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="582.0" text="C10" textAlignment="CENTER" />
+                  <Label layoutX="419.0" layoutY="582.0" text="C9" textAlignment="CENTER" />
+                  <Label layoutX="494.0" layoutY="583.0" text="C8" textAlignment="CENTER" />
+                  <Label layoutX="568.0" layoutY="583.0" text="C7" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="581.0" text="C14" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="581.0" text="C13" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="582.0" text="C12" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="582.0" text="C11" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="499.0" text="C18" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="499.0" text="C17" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="498.0" text="C16" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="498.0" text="C15" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="499.0" text="C19" textAlignment="CENTER" />
+                  <Label layoutX="708.0" layoutY="498.0" text="C24" textAlignment="CENTER" />
+                  <Label layoutX="415.0" layoutY="498.0" text="C20" textAlignment="CENTER" />
+                  <Label layoutX="487.0" layoutY="498.0" text="C21" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="498.0" text="C22" textAlignment="CENTER" />
+                  <Label layoutX="634.0" layoutY="498.0" text="C23" textAlignment="CENTER" />
+                  <Label layoutX="711.0" layoutY="145.0" text="C53" textAlignment="CENTER" />
+                  <Label layoutX="756.0" layoutY="145.0" text="C54" textAlignment="CENTER" />
+                  <Label layoutX="801.0" layoutY="145.0" text="C55" textAlignment="CENTER" />
+                  <Label layoutX="844.0" layoutY="145.0" text="C56" textAlignment="CENTER" />
+                  <Label layoutX="1021.0" layoutY="144.0" text="C60" textAlignment="CENTER" />
+                  <Label layoutX="978.0" layoutY="144.0" text="C59" textAlignment="CENTER" />
+                  <Label layoutX="933.0" layoutY="144.0" text="C58" textAlignment="CENTER" />
+                  <Label layoutX="888.0" layoutY="144.0" text="C57" textAlignment="CENTER" />
+                  <Label layoutX="1062.0" layoutY="144.0" text="C61" textAlignment="CENTER" />
+                  <Label layoutX="1105.0" layoutY="144.0" text="C62" textAlignment="CENTER" />
+                  <Label layoutX="785.0" layoutY="498.0" text="C25" textAlignment="CENTER" />
+                  <Label layoutX="857.0" layoutY="498.0" text="C26" textAlignment="CENTER" />
+                  <Label layoutX="932.0" layoutY="498.0" text="C27" textAlignment="CENTER" />
+                  <Label layoutX="1004.0" layoutY="498.0" text="C28" textAlignment="CENTER" />
+                  <Label layoutX="486.0" layoutY="144.0" text="C49" textAlignment="CENTER" />
+                  <Label layoutX="414.0" layoutY="144.0" text="C48" textAlignment="CENTER" />
+                  <Label layoutX="339.0" layoutY="144.0" text="C47" textAlignment="CENTER" />
+                  <Label layoutX="267.0" layoutY="144.0" text="C46" textAlignment="CENTER" />
+                  <Label layoutX="560.0" layoutY="144.0" text="C50" textAlignment="CENTER" />
+                  <Label layoutX="197.0" layoutY="145.0" text="C45" textAlignment="CENTER" />
+                  <Label layoutX="51.0" layoutY="145.0" text="C43" textAlignment="CENTER" />
+                  <Label layoutX="123.0" layoutY="145.0" text="C44" textAlignment="CENTER" />
+                  <Label layoutX="669.0" layoutY="145.0" text="C52" textAlignment="CENTER" />
+                  <Label layoutX="624.0" layoutY="145.0" text="C51" textAlignment="CENTER" />
+                  <Rectangle fx:id="cajonC52" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="665.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonC51" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Label layoutX="856.0" layoutY="226.0" text="C31" textAlignment="CENTER" />
+                  <Label layoutX="784.0" layoutY="226.0" text="C32" textAlignment="CENTER" />
+                  <Label layoutX="709.0" layoutY="226.0" text="C33" textAlignment="CENTER" />
+                  <Label layoutX="639.0" layoutY="226.0" text="C34" textAlignment="CENTER" />
+                  <Label layoutX="488.0" layoutY="226.0" text="C36" textAlignment="CENTER" />
+                  <Label layoutX="416.0" layoutY="226.0" text="C37" textAlignment="CENTER" />
+                  <Label layoutX="341.0" layoutY="226.0" text="C38" textAlignment="CENTER" />
+                  <Label layoutX="269.0" layoutY="226.0" text="C39" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="226.0" text="C35" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="227.0" text="C40" textAlignment="CENTER" />
+                  <Label layoutX="53.0" layoutY="227.0" text="C42" textAlignment="CENTER" />
+                  <Label layoutX="125.0" layoutY="227.0" text="C41" textAlignment="CENTER" />
+                  <Label layoutX="928.0" layoutY="225.0" text="C30" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="225.0" text="C29" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane fx:id="panePisoCuatro" layoutY="50.0" prefHeight="753.0" prefWidth="1182.0" visible="false">
+               <children>
+                  <Rectangle fx:id="cajonD13" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="111.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD12" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="184.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD11" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="257.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD10" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="330.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD9" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="403.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD8" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="476.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD7" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="549.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD6" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="622.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD3" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="841.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD2" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="914.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD5" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="695.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD4" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="768.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD14" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="38.0" layoutY="617.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="716.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Rectangle fx:id="cajonD15" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD25" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD24" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD27" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD26" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD23" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD22" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD21" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD20" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD19" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD18" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD17" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD16" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD41" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD40" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD39" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD38" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD37" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD36" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD35" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD34" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD31" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD30" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="913.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD33" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="694.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD32" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="767.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD42" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD43" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="37.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD29" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD1" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="616.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD50" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="548.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD49" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="475.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD48" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="402.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD47" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="329.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD46" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="256.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD45" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="183.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD44" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="110.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD53" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="708.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD54" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="752.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD56" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="840.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD55" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="796.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD59" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="971.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD58" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="927.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD57" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="883.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD28" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="986.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+                  <Rectangle fx:id="cajonD60" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1014.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD61" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1058.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD62" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1102.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Line endX="493.0" layoutX="556.0" layoutY="368.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Line endX="570.0" layoutX="556.0" layoutY="29.0" startX="-527.0" stroke="#b8b8b8" />
+                  <Label layoutX="1003.0" layoutY="583.0" text="D1" textAlignment="CENTER" />
+                  <Label layoutX="930.0" layoutY="583.0" text="D2" textAlignment="CENTER" />
+                  <Label layoutX="860.0" layoutY="583.0" text="D3" textAlignment="CENTER" />
+                  <Label layoutX="788.5" layoutY="583.0" text="D4" textAlignment="CENTER" />
+                  <Label layoutX="711.5" layoutY="582.0" text="D5" textAlignment="CENTER" />
+                  <Label layoutX="640.5" layoutY="582.0" text="D6" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="582.0" text="D10" textAlignment="CENTER" />
+                  <Label layoutX="419.0" layoutY="582.0" text="D9" textAlignment="CENTER" />
+                  <Label layoutX="494.0" layoutY="583.0" text="D8" textAlignment="CENTER" />
+                  <Label layoutX="568.0" layoutY="583.0" text="D7" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="581.0" text="D14" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="581.0" text="D13" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="582.0" text="D12" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="582.0" text="D11" textAlignment="CENTER" />
+                  <Label layoutX="271.0" layoutY="499.0" text="D18" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="499.0" text="D17" textAlignment="CENTER" />
+                  <Label layoutX="124.0" layoutY="498.0" text="D16" textAlignment="CENTER" />
+                  <Label layoutX="52.0" layoutY="498.0" text="D15" textAlignment="CENTER" />
+                  <Label layoutX="345.0" layoutY="499.0" text="D19" textAlignment="CENTER" />
+                  <Label layoutX="708.0" layoutY="498.0" text="D24" textAlignment="CENTER" />
+                  <Label layoutX="415.0" layoutY="498.0" text="D20" textAlignment="CENTER" />
+                  <Label layoutX="487.0" layoutY="498.0" text="D21" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="498.0" text="D22" textAlignment="CENTER" />
+                  <Label layoutX="634.0" layoutY="498.0" text="D23" textAlignment="CENTER" />
+                  <Label layoutX="711.0" layoutY="145.0" text="D53" textAlignment="CENTER" />
+                  <Label layoutX="756.0" layoutY="145.0" text="D54" textAlignment="CENTER" />
+                  <Label layoutX="801.0" layoutY="145.0" text="D55" textAlignment="CENTER" />
+                  <Label layoutX="844.0" layoutY="145.0" text="D56" textAlignment="CENTER" />
+                  <Label layoutX="1021.0" layoutY="144.0" text="D60" textAlignment="CENTER" />
+                  <Label layoutX="978.0" layoutY="144.0" text="D59" textAlignment="CENTER" />
+                  <Label layoutX="933.0" layoutY="144.0" text="D58" textAlignment="CENTER" />
+                  <Label layoutX="888.0" layoutY="144.0" text="D57" textAlignment="CENTER" />
+                  <Label layoutX="1062.0" layoutY="144.0" text="D61" textAlignment="CENTER" />
+                  <Label layoutX="1105.0" layoutY="144.0" text="D62" textAlignment="CENTER" />
+                  <Label layoutX="785.0" layoutY="498.0" text="D25" textAlignment="CENTER" />
+                  <Label layoutX="857.0" layoutY="498.0" text="D26" textAlignment="CENTER" />
+                  <Label layoutX="932.0" layoutY="498.0" text="D27" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="498.0" text="D28" textAlignment="CENTER" />
+                  <Label layoutX="486.0" layoutY="144.0" text="D49" textAlignment="CENTER" />
+                  <Label layoutX="414.0" layoutY="144.0" text="D48" textAlignment="CENTER" />
+                  <Label layoutX="339.0" layoutY="144.0" text="D47" textAlignment="CENTER" />
+                  <Label layoutX="267.0" layoutY="144.0" text="D46" textAlignment="CENTER" />
+                  <Label layoutX="560.0" layoutY="144.0" text="D50" textAlignment="CENTER" />
+                  <Label layoutX="197.0" layoutY="145.0" text="D45" textAlignment="CENTER" />
+                  <Label layoutX="51.0" layoutY="145.0" text="D43" textAlignment="CENTER" />
+                  <Label layoutX="123.0" layoutY="145.0" text="D44" textAlignment="CENTER" />
+                  <Label layoutX="669.0" layoutY="145.0" text="D52" textAlignment="CENTER" />
+                  <Label layoutX="624.0" layoutY="145.0" text="D51" textAlignment="CENTER" />
+                  <Rectangle fx:id="cajonD52" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="665.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD51" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="621.0" layoutY="41.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Label layoutX="856.0" layoutY="226.0" text="D31" textAlignment="CENTER" />
+                  <Label layoutX="784.0" layoutY="226.0" text="D32" textAlignment="CENTER" />
+                  <Label layoutX="709.0" layoutY="226.0" text="D33" textAlignment="CENTER" />
+                  <Label layoutX="639.0" layoutY="226.0" text="D34" textAlignment="CENTER" />
+                  <Label layoutX="488.0" layoutY="226.0" text="D36" textAlignment="CENTER" />
+                  <Label layoutX="416.0" layoutY="226.0" text="D37" textAlignment="CENTER" />
+                  <Label layoutX="341.0" layoutY="226.0" text="D38" textAlignment="CENTER" />
+                  <Label layoutX="269.0" layoutY="226.0" text="D39" textAlignment="CENTER" />
+                  <Label layoutX="562.0" layoutY="226.0" text="D35" textAlignment="CENTER" />
+                  <Label layoutX="199.0" layoutY="227.0" text="D40" textAlignment="CENTER" />
+                  <Label layoutX="53.0" layoutY="227.0" text="D42" textAlignment="CENTER" />
+                  <Label layoutX="125.0" layoutY="227.0" text="D41" textAlignment="CENTER" />
+                  <Label layoutX="928.0" layoutY="225.0" text="D30" textAlignment="CENTER" />
+                  <Label layoutX="1000.0" layoutY="225.0" text="D29" textAlignment="CENTER" />
+                  <Rectangle fx:id="cajonD63" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1056.0" layoutY="263.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle fx:id="cajonD64" arcHeight="30.0" arcWidth="40.0" fill="#efefef" height="85.0" layoutX="1057.0" layoutY="391.0" onMouseClicked="#clicCajon" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Label layoutX="1059.0" layoutY="498.0" text="D64" textAlignment="CENTER" />
+                  <Label layoutX="1059.0" layoutY="225.0" text="D63" textAlignment="CENTER" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label layoutX="48.0" layoutY="21.0" text="Ocupación del estacionamiento">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#ff0808" height="30.0" layoutX="527.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+      <Pane fx:id="paneInformacionCajon" layoutX="1266.0" layoutY="108.0" prefHeight="800.0" prefWidth="426.0" style="-fx-background-color: white; -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.25), 25, 0.0, 0.0, 4); -fx-border-radius: 13; -fx-background-radius: 13;" visible="false">
+         <children>
+            <ImageView fx:id="ivTipoVehiculo" fitHeight="232.0" fitWidth="426.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="30.0" layoutY="17.0" text="Cajón -" textFill="#676767">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbIdentificadorTarjeta" layoutX="129.0" layoutY="17.0" prefHeight="35.0" prefWidth="98.0" textFill="#676767">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="303.0" text="Detalles">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="365.0" text="Piso" textFill="#7e7e7e">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbPiso" layoutX="28.0" layoutY="405.0" prefHeight="45.0" prefWidth="113.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbTipoVehiculo" layoutX="240.0" layoutY="405.0" prefHeight="35.0" prefWidth="118.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbTarifa" layoutX="49.0" layoutY="569.0" prefHeight="35.0" prefWidth="232.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="375.0" layoutY="12.0" onMouseClicked="#clicCancelar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/cancelar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="26.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/alerta.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="240.0" layoutY="365.0" text="Tipo" textFill="#7e7e7e">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Line endX="250.0" layoutX="131.0" layoutY="455.0" startX="-100.0" />
+            <Label fx:id="lbFecha" layoutX="28.0" layoutY="515.0" prefHeight="45.0" prefWidth="356.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="482.0" text="Fecha" textFill="#7e7e7e">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="570.0" text="Tarifa actual" textFill="#7e7e7e">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbTarifa" layoutX="28.0" layoutY="605.0" prefHeight="45.0" prefWidth="356.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Pane layoutX="28.0" layoutY="684.0" prefHeight="85.0" prefWidth="375.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
+               <children>
+                  <Text fill="WHITE" layoutX="97.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar cajón">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label layoutX="571.0" layoutY="62.0" text="No disponible" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="743.0" layoutY="62.0" text="Disponible" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#efefef" height="30.0" layoutX="699.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#b4c8ef" height="30.0" layoutX="843.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+      <Label layoutX="887.0" layoutY="62.0" text="Asignado" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#2464de" height="30.0" layoutX="975.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+      <Label layoutX="1019.0" layoutY="63.0" text="Disponible" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="66.0" text="Vista en tiempo real de cajones libres y ocupados" textFill="SILVER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="btnPerfil" fitHeight="54.0" fitWidth="50.0" layoutX="1644.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/perfil.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="btnCerrarSesion" layoutX="1445.0" layoutY="80.0" onMouseClicked="#clicCerrarSesión" prefHeight="60.0" prefWidth="248.0" style="-fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.25), 25, 0.0, 0.0, 4); -fx-background-color: white; -fx-background-radius: 13;" translateX="318.0">
+         <children>
+            <Label layoutX="57.0" layoutY="13.0" text="Cerrar sesión">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
