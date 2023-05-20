@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="840.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLHistoricoDiaController">
+   <children>
+      <Label layoutX="133.0" layoutY="23.0" text="Histórico del día" textFill="#676767">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="33.0" />
+         </font>
+      </Label>
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="20.0" layoutY="76.0" prefHeight="746.0" prefWidth="1690.0">
+         <content>
+            <Pane prefHeight="885.0" prefWidth="1690.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label fx:id="lbFecha" alignment="CENTER_RIGHT" layoutX="1169.0" layoutY="7.0" prefHeight="35.0" prefWidth="474.0" style="-fx-alignment: ;" text="fecha" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <BarChart fx:id="bchUsoPorPiso" layoutX="48.0" layoutY="61.0" prefHeight="465.0" prefWidth="650.0" title="Uso de estacionamiento por piso al día:">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Label layoutX="806.0" layoutY="63.0" prefHeight="35.0" prefWidth="619.0" style="-fx-alignment: ;" text="Total de ganancias por uso de estacionamiento al día:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTotalGanancias" layoutX="1435.0" layoutY="62.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="806.0" layoutY="109.0" prefHeight="35.0" prefWidth="286.0" style="-fx-alignment: ;" text="Total de vehículos al día:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="806.0" layoutY="151.0" prefHeight="35.0" prefWidth="305.0" style="-fx-alignment: ;" text="Número de multas al día:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="805.0" layoutY="190.0" prefHeight="35.0" prefWidth="345.0" style="-fx-alignment: ;" text="Ingresos por parte de multas:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="806.0" layoutY="232.0" prefHeight="35.0" prefWidth="216.0" style="-fx-alignment: ;" text="Tarjetas perdidas: " textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <BarChart fx:id="bchUsoPorPiso1" layoutX="823.0" layoutY="330.0" prefHeight="400.0" prefWidth="650.0" title="Uso de lugares al día">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+                  <Label fx:id="lbTotalVehiculos" layoutX="1127.0" layoutY="107.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTotalMultas" layoutX="1130.0" layoutY="150.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbGananciasMultas" layoutX="1147.0" layoutY="190.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTotalTarjetasPerdidas" layoutX="1021.0" layoutY="234.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="2" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbGananciasAutomoviles" layoutX="448.0" layoutY="536.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="535.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por automóviles:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="577.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por motocicletas:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbGananciasMotocicletas" layoutX="448.0" layoutY="578.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbGananciasReservados" layoutX="448.0" layoutY="623.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="622.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por reservados:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="799.0" layoutY="98.0" prefHeight="4.0" prefWidth="822.0" />
+               </children>
+            </Pane>
+         </content>
+         <effect>
+            <DropShadow color="#0000004a" height="45.88" radius="23.2175" width="48.99" />
+         </effect>
+      </ScrollPane>
+   </children>
+</AnchorPane>
