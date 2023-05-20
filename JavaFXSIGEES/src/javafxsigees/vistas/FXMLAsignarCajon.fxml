@@ -671,7 +671,7 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <Pane layoutX="28.0" layoutY="684.0" prefHeight="85.0" prefWidth="375.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
+            <Pane layoutX="28.0" layoutY="684.0" onMouseClicked="#clicAsignarCajon" prefHeight="85.0" prefWidth="375.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
                <children>
                   <Text fill="WHITE" layoutX="97.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar cajón">
                      <font>

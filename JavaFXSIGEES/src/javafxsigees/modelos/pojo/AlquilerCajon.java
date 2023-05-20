@@ -1,41 +1,37 @@
-
 package javafxsigees.modelos.pojo;
 
-import java.sql.Time;
 import java.util.Date;
 
-
+/**
+ *
+ * @author Daniel García Arcos
+ */
 public class AlquilerCajon {
     
     private int idAlquilerCajon;
-    private Date fechaAsignacion;
-    private Time horaAsignacion;
-    private Date fechaSalida;
-    private Time horaSalida;
-    private double monto;
+    private Date fechaHoraInicio;
+    private Date fechaHoraSalida;
+    private double montoPago;
     private int idCuota;
-    private double couta;
     private int idTarjeta;
     private int idUsuario;
-    private String nombreUsuario;
+    private String cuota;
 
     public AlquilerCajon() {
     }
 
-    public AlquilerCajon(int idAlquilerCajon, Date fechaAsignacion, Time horaAsignacion, Date fechaSalida, Time horaSalida, double monto, int idCuota, double couta, int idTarjeta, int idUsuario, String nombreUsuario) {
+    public AlquilerCajon(int idAlquilerCajon, Date fechaHoraInicio, Date fechaHoraSalida, double montoPago, int idCuota, int idTarjeta, int idUsuario, String cuota) {
         this.idAlquilerCajon = idAlquilerCajon;
-        this.fechaAsignacion = fechaAsignacion;
-        this.horaAsignacion = horaAsignacion;
-        this.fechaSalida = fechaSalida;
-        this.horaSalida = horaSalida;
-        this.monto = monto;
+        this.fechaHoraInicio = fechaHoraInicio;
+        this.fechaHoraSalida = fechaHoraSalida;
+        this.montoPago = montoPago;
         this.idCuota = idCuota;
-        this.couta = couta;
         this.idTarjeta = idTarjeta;
         this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
+        this.cuota = cuota;
     }
 
+    
     public int getIdAlquilerCajon() {
         return idAlquilerCajon;
     }
@@ -44,44 +40,28 @@ public class AlquilerCajon {
         this.idAlquilerCajon = idAlquilerCajon;
     }
 
-    public Date getFechaAsignacion() {
-        return fechaAsignacion;
+    public Date getFechaHoraInicio() {
+        return fechaHoraInicio;
     }
 
-    public void setFechaAsignacion(Date fechaAsignacion) {
-        this.fechaAsignacion = fechaAsignacion;
+    public void setFechaHoraInicio(Date fechaHoraInicio) {
+        this.fechaHoraInicio = fechaHoraInicio;
     }
 
-    public Time getHoraAsignacion() {
-        return horaAsignacion;
+    public Date getFechaHoraSalida() {
+        return fechaHoraSalida;
     }
 
-    public void setHoraAsignacion(Time horaAsignacion) {
-        this.horaAsignacion = horaAsignacion;
+    public void setFechaHoraSalida(Date fechaHoraSalida) {
+        this.fechaHoraSalida = fechaHoraSalida;
     }
 
-    public Date getFechaSalida() {
-        return fechaSalida;
+    public double getMontoPago() {
+        return montoPago;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
-
-    public Time getHoraSalida() {
-        return horaSalida;
-    }
-
-    public void setHoraSalida(Time horaSalida) {
-        this.horaSalida = horaSalida;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setMontoPago(double montoPago) {
+        this.montoPago = montoPago;
     }
 
     public int getIdCuota() {
@@ -90,14 +70,6 @@ public class AlquilerCajon {
 
     public void setIdCuota(int idCuota) {
         this.idCuota = idCuota;
-    }
-
-    public double getCouta() {
-        return couta;
-    }
-
-    public void setCouta(double couta) {
-        this.couta = couta;
     }
 
     public int getIdTarjeta() {
@@ -116,14 +88,13 @@ public class AlquilerCajon {
         this.idUsuario = idUsuario;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getCuota() {
+        return cuota;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setCuota(String cuota) {
+        this.cuota = cuota;
     }
-    
     
     
 }
