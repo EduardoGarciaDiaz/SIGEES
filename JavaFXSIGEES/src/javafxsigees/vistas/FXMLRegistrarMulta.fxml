@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="281.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLRegistrarMultaController">
+   <children>
+      <Rectangle arcHeight="30.0" arcWidth="40.0" fill="#5cd23f" height="38.0" layoutX="240.0" layoutY="227.0" stroke="#5cd23f" strokeDashOffset="100.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="100.0" width="123.0" />
+      <Label layoutX="269.0" layoutY="236.0" onMouseClicked="#clicConfirmar" text="Confirmar" textFill="WHITE" />
+      <Rectangle arcHeight="30.0" arcWidth="40.0" fill="#fe4343" height="38.0" layoutX="53.0" layoutY="227.0" onMouseClicked="#clciCancelar" stroke="#5cd23f" strokeDashOffset="100.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="100.0" width="123.0" />
+      <Label layoutX="86.0" layoutY="236.0" text="Cancelar" textFill="WHITE" />
+      <Label layoutX="53.0" layoutY="143.0" prefHeight="21.0" prefWidth="148.0" text="Monto (IVA incluido )" />
+      <Label fx:id="lbMontoMulta" layoutX="53.0" layoutY="179.0" prefHeight="21.0" prefWidth="148.0" />
+      <Label contentDisplay="CENTER" layoutX="50.0" layoutY="24.0" prefHeight="39.0" prefWidth="317.0" text="Registrar pago de multa">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbxMulta" layoutX="52.0" layoutY="84.0" prefHeight="31.0" prefWidth="292.0" promptText="-Seleccione un concepto-">
+         <effect>
+            <Blend />
+         </effect>
+      </ComboBox>
+   </children>
+</AnchorPane>

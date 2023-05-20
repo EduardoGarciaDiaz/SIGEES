@@ -6,11 +6,23 @@
 
 package javafxsigees.utils;
 
+
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafxsigees.modelos.dao.DAOException;
 
 public class Utilidades {
     
@@ -31,6 +43,42 @@ public class Utilidades {
             System.out.println("ERROR: " + ex.getMessage());
         }
         return escena;
+    }
+    
+    public static String convertirDateToString(Date fechaConvertir) {
+        String fechaString = null;
+        SimpleDateFormat conver = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha;            
+        try {
+            fechaString = conver.format(fechaConvertir);
+        } catch (Exception ex) {
+           mostrarDialogoSimple("Error", "Error al convertir las fechas ", Alert.AlertType.WARNING);
+        }
+        return fechaString;
+    }
+    
+    public static String convertirTimeToString(Time horaConvertir) {
+        String horaString = null;
+        SimpleDateFormat conver = new SimpleDateFormat("HH:mm:ss");
+        Date fecha;            
+        try {
+            horaString = conver.format(horaConvertir);
+        } catch (Exception ex) {
+            mostrarDialogoSimple("Error", "Error al convertir las fechas ", Alert.AlertType.WARNING);
+        }
+        return horaString;
+    }
+    
+    public static Date convertirStringToDate(String fechaConvertir) throws DAOException  {
+        LocalDate fechaLocal = LocalDate.parse(fechaConvertir, DateTimeFormatter.ofPattern("yyyy-M-d"));
+        Date fechaConvertida = Date.valueOf(fechaLocal);
+        return fechaConvertida;
+    }
+    
+    public static Time convertirStringToTime(String horaActual) {
+         LocalTime horaLocal = LocalTime.parse(horaActual, DateTimeFormatter.ofPattern("H:m:s"));
+         Time horaConvertida = Time.valueOf(horaLocal);
+         return horaConvertida;
     }
     
 }

@@ -16,7 +16,7 @@ public class JavaFXSIGEES extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLSIGEES.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLAsignarCajon.fxml"));
         
         Scene scene = new Scene(root);
         

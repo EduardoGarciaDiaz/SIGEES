@@ -1,8 +1,14 @@
 package javafxsigees.controladores;
 
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.NumberFormat;
 import javafx.util.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -14,10 +20,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafxsigees.modelos.dao.AlquilerCajonDAO;
 import javafxsigees.modelos.dao.DAOException;
 import javafxsigees.modelos.dao.TarjetaDAO;
+import javafxsigees.modelos.pojo.AlquilerCajon;
 import javafxsigees.modelos.pojo.Tarjeta;
 import javafxsigees.utils.Utilidades;
+import static javafxsigees.utils.Utilidades.convertirDateToString;
+import static javafxsigees.utils.Utilidades.convertirTimeToString;
 
 public class FXMLAsignarCajonController implements Initializable {
 
@@ -557,6 +567,51 @@ public class FXMLAsignarCajonController implements Initializable {
     private Pane btnCerrarSesion;
     @FXML
     private ImageView ivTipoVehiculo;
+    @FXML
+    private Pane paneInformacionCajonAsignado;
+    @FXML
+    private ImageView ivTipoVehiculo1;
+    @FXML
+    private Label lbIdentificadorTarjeta1;
+    @FXML
+    private Label lbPisoDespachador1;
+    @FXML
+    private Label lbTipoVehiculoDespachador1;
+    @FXML
+    private Label lbFechaAsignacionDespachador1;
+    @FXML
+    private Pane paneInformacionCobroCajon;
+    @FXML
+    private ImageView ivTipoVehiculo11;
+    @FXML
+    private Label lbIdentificadorTarjeta11;
+    @FXML
+    private Label lbFechaSalidaCobro;
+    @FXML
+    private Label lbHorasTotales;
+    private Label lbHorasTotales1;
+    
+    private AlquilerCajon alquilerCajonRegistro;
+    private Rectangle cajonActual;
+    
+    @FXML
+    private Label lbHoraAsignacionDespachador1;
+    @FXML
+    private Label lbFechaAsignacionCobro;
+    @FXML
+    private Label lbHoraAsignacionCobro;
+    @FXML
+    private Label lbHoraSalidaCobro;
+    @FXML
+    private Label lbTotalalPago;
+    @FXML
+    private Rectangle ciculoDisponible;
+    @FXML
+    private Label lbDisponible;
+    @FXML
+    private Pane paneBtnRegistarMulta;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -565,6 +620,11 @@ public class FXMLAsignarCajonController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         pnBtnPisoUno.setStyle("-fx-background-color: white");
         prepararAnimacionMenu();
+        
+         //Estodebe de desaparcer y aparecer segun el usuario
+        lbDisponible.setVisible(false);
+        ciculoDisponible.setVisible(false);
+        paneBtnRegistarMulta.setVisible(true);
     }  
     
     public void prepararAnimacionMenu() {
@@ -632,22 +692,53 @@ public class FXMLAsignarCajonController implements Initializable {
     @FXML
     private void clicCancelar(MouseEvent event) {
         paneInformacionCajon.setVisible(false);
-        paneCajonNoSeleccionado.setVisible(true);
+        paneInformacionCajonAsignado.setVisible(false);
+        paneInformacionCobroCajon.setVisible(false);
+        paneCajonNoSeleccionado.setVisible(true);       
     }
 
     @FXML
     private void clicCajon(MouseEvent event) {
-        paneCajonNoSeleccionado.setVisible(false);
+        paneCajonNoSeleccionado.setVisible(true);        
         Rectangle cajon = (Rectangle) event.getSource();
+        cajonActual = cajon;
         Tarjeta tarjeta = obtenerInformacionCajon(cajon);
         if(tarjeta.getIdTarjeta() == -1) {
             Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
         } else {
             if ("Disponible".equals(tarjeta.getNombreEstadoCajon())) {
                 setInformacionCajon(tarjeta);
-                paneInformacionCajon.setVisible(true);
+                //paneInformacionCajon.setVisible(true);   
             }
         }
+        
+        if(tarjeta.getIdTarjeta() == -1) {
+            Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
+        }else {
+            switch(tarjeta.getNombreEstadoCajon()) {
+                case("Disponible"):
+                    Utilidades.mostrarDialogoSimple("Cajon Sin asignar", "No puedes cobrar un cajon sin asignar ", Alert.AlertType.WARNING);
+                     break;
+                case("Ocupado"):
+                    Utilidades.mostrarDialogoSimple("Cajon Ocupado", "No puedes cobrar un cajon que aun esta ocupado", Alert.AlertType.WARNING);
+                    break;
+                case("No Disponibles"):
+                    Utilidades.mostrarDialogoSimple("Cajon No Disponible", "No puedes cobrar un cajon que no tiene Trajeta ", Alert.AlertType.WARNING);
+                    break;
+                case("Asignado"): {
+                    AlquilerCajonDAO alquilerDAO = new AlquilerCajonDAO();   
+                    paneCajonNoSeleccionado.setVisible(false); 
+                    try {
+                        alquilerCajonRegistro = alquilerDAO.obtenerCajonAlquilado(tarjeta.getNumeroCajon(), tarjeta.getPiso());
+                        setInformacionCajonAsignado(tarjeta);
+                        paneInformacionCajonAsignado.setVisible(true);
+                    } catch (DAOException ex) {
+                       Utilidades.mostrarDialogoSimple("Cajon No Disponible", "No puedes cobrar un cajon que no tiene Trajeta ", Alert.AlertType.ERROR);
+                    } 
+                }                  
+            }
+        }
+        
     }
     
     private void setInformacionCajon(Tarjeta tarjeta) {
@@ -655,15 +746,52 @@ public class FXMLAsignarCajonController implements Initializable {
             LocalDate fechaActual = LocalDate.now();
             lbIdentificadorTarjeta.setText(obtenerLetraPiso(tarjeta.getPiso())+""+tarjeta.getNumeroCajon());
             lbPiso.setText(String.valueOf(tarjeta.getPiso()));
-            lbTipoVehiculo.setText(tarjeta.getTipoVehiculo());
-            if ("Vehiculo".equals(tarjeta.getTipoVehiculo())) {
-                ivTipoVehiculo.setImage(new Image("file:src/javafxsigees/recursos/auto.png"));
-            } else {
-                ivTipoVehiculo.setImage(new Image("file:src/javafxsigees/recursos/motocicleta.png"));
-            }
+            lbTipoVehiculo.setText(tarjeta.getTipoVehiculo());            
+            setFotoTipoVehiculo(tarjeta);
             lbFecha.setText(fechaActual.getDayOfMonth() + " de "+fechaActual.getMonthValue()+ " del " +fechaActual.getYear());
             lbTarifa.setText("20");
         }
+    }
+    
+    private void setInformacionCajonAsignado(Tarjeta tarjeta) {
+         if (tarjeta != null) {                      
+            lbIdentificadorTarjeta1.setText(obtenerLetraPiso(tarjeta.getPiso())+""+tarjeta.getNumeroCajon());
+            lbPisoDespachador1.setText(String.valueOf(tarjeta.getPiso()));
+            lbTipoVehiculoDespachador1.setText(tarjeta.getTipoVehiculo()); 
+            lbFechaAsignacionDespachador1.setText(convertirDateToString((Date) alquilerCajonRegistro.getFechaAsignacion()));
+            lbHoraAsignacionDespachador1.setText(convertirTimeToString((Time) alquilerCajonRegistro.getHoraAsignacion()));
+             setFotoTipoVehiculo(tarjeta);
+        }
+    }
+    
+    private void setInformacionCajonCobro(Tarjeta tarjeta) {
+         if (tarjeta != null) {   
+            LocalDate fechaActual = LocalDate.now();
+            LocalTime horaActual = LocalTime.now();            
+            lbIdentificadorTarjeta11.setText(obtenerLetraPiso(tarjeta.getPiso())+""+tarjeta.getNumeroCajon()); 
+            String fechaAsignacion = Utilidades.convertirDateToString((Date) alquilerCajonRegistro.getFechaAsignacion());
+            String horaAsignacion = Utilidades.convertirTimeToString((Time) alquilerCajonRegistro.getHoraAsignacion()); 
+            String fechaSalida = fechaActual.getYear()+ "-"+fechaActual.getMonthValue()+"-"+fechaActual.getDayOfMonth();            
+            String horaSalida = horaActual.getHour()-1 +":"+horaActual.getMinute()+ ":" +horaActual.getSecond();
+            lbFechaAsignacionCobro.setText(fechaAsignacion);
+            lbHoraAsignacionCobro.setText(horaAsignacion);            
+            lbFechaSalidaCobro.setText(fechaSalida);            
+            lbHoraSalidaCobro.setText(horaSalida);          
+            setFotoTipoVehiculo(tarjeta);
+            validarTiempo(fechaAsignacion, horaAsignacion,fechaSalida, horaSalida);                    
+        }
+    }
+    
+    private void setFotoTipoVehiculo(Tarjeta tarjeta) {
+        if ("Vehiculo".equals(tarjeta.getTipoVehiculo())) {
+                ivTipoVehiculo.setImage(new Image("file:src/javafxsigees/recursos/auto.png"));
+                ivTipoVehiculo1.setImage(new Image("file:src/javafxsigees/recursos/auto.png"));
+                ivTipoVehiculo11.setImage(new Image("file:src/javafxsigees/recursos/auto.png"));
+            } else {
+                ivTipoVehiculo.setImage(new Image("file:src/javafxsigees/recursos/motocicleta.png"));
+                ivTipoVehiculo1.setImage(new Image("file:src/javafxsigees/recursos/motocicleta.png"));
+                ivTipoVehiculo11.setImage(new Image("file:src/javafxsigees/recursos/motocicleta.png"));
+            }
     }
 
     private Tarjeta obtenerInformacionCajon(Rectangle cajon) {
@@ -721,9 +849,111 @@ public class FXMLAsignarCajonController implements Initializable {
         
         return letraPiso;
     }
+  
+    
+    private void validarTiempo(String fechaAsignaicion, String horaAsignacion, String fechaSalida, String horaSalida) {       
+        LocalDate fechaBefore = LocalDate.parse(fechaAsignaicion, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate fechaAfter = LocalDate.parse(fechaSalida, DateTimeFormatter.ofPattern("yyyy-M-dd"));
+        LocalTime horaBefore = LocalTime.parse(horaAsignacion, DateTimeFormatter.ISO_LOCAL_TIME);
+        LocalTime horaAfter = LocalTime.parse(horaSalida, DateTimeFormatter.ofPattern("H:m:s"));        
+        long diferenciaDias = ChronoUnit.DAYS.between(fechaBefore, fechaAfter);
+        long diferenciaMinutos = ChronoUnit.MINUTES.between(horaBefore, horaAfter);       
+        long diferenciaMinutosDeDias = (diferenciaDias*24)*60;
+        if(diferenciaMinutos >= 11 || diferenciaMinutosDeDias >= 11) {
+            calcularMonto(diferenciaMinutos+diferenciaMinutosDeDias);
+        }else {
+            lbHorasTotales.setText(Long.toString(diferenciaMinutos));
+            lbTotalalPago.setText("Tiempo de estadia menor a 10 minutos, Servicio gratuito");
+        }
+    }  
+   
+    private void calcularMonto(long tiempoEstacionamiento) {
+        double totalHoras = tiempoEstacionamiento/60;
+        double totalPago = alquilerCajonRegistro.getCouta() * totalHoras;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyTotalPago = formatter.format(totalPago);
+        alquilerCajonRegistro.setMonto(totalPago);
+        lbHorasTotales.setText(String.valueOf(totalHoras)+" h");
+        lbTotalalPago.setText(moneyTotalPago);
+    }
 
     @FXML
     private void clicCerrarSesión(MouseEvent event) {
+    }
+
+    @FXML
+    private void clicBtnTarjetaPerdida(MouseEvent event) {
+    }
+
+    @FXML
+    private void clicBtnRegistraPago(MouseEvent event) throws DAOException {
+        int respuesta = -1;
+        AlquilerCajonDAO alquilerDAO = new AlquilerCajonDAO(); 
+        AlquilerCajon alquilerCajonPago =new AlquilerCajon();
+        alquilerCajonPago.setFechaSalida(Utilidades.convertirStringToDate(lbFechaSalidaCobro.getText()));
+        alquilerCajonPago.setHoraSalida(Utilidades.convertirStringToTime(lbHoraSalidaCobro.getText()));
+        alquilerCajonPago.setIdAlquilerCajon(alquilerCajonRegistro.getIdAlquilerCajon());
+        if(lbTotalalPago.getText().equals("Tiempo de estadia menor a 10 minutos, Servicio gratuito")) {
+            alquilerCajonPago.setMonto(0.0);
+            respuesta = alquilerDAO.registrarPagoAlquilerCajon(alquilerCajonPago);
+        }else {
+            alquilerCajonPago.setMonto(alquilerCajonRegistro.getMonto());
+            respuesta = alquilerDAO.registrarPagoAlquilerCajon(alquilerCajonPago);            
+         }         
+        if(respuesta != -1) {
+            TarjetaDAO tarjetaDao = new TarjetaDAO();
+            Tarjeta tarjeta = obtenerInformacionCajon(cajonActual);
+            tarjetaDao.cambiarEstadoTarjeta(1, tarjeta.getIdTarjeta());
+            Utilidades.mostrarDialogoSimple("Registro exitoso", "Se ha registrado con exito pago", Alert.AlertType.INFORMATION);
+            paneInformacionCobroCajon.setVisible(false);
+            desactivarCajones(false);
+        } else {
+            Utilidades.mostrarDialogoSimple("Fallo al registrar", "Ocurrio un error al registrar el pago", Alert.AlertType.ERROR);
+        }
+        
+    }
+
+    @FXML
+    private void clicBtnRgistrarMulta(MouseEvent event) {
+        
+    }
+
+    @FXML
+    private void clicBtnDetener(MouseEvent event) {     
+        desactivarCajones(true);
+        paneCajonNoSeleccionado.setVisible(false);
+        Tarjeta tarjeta = obtenerInformacionCajon(cajonActual);
+        setInformacionCajonCobro(tarjeta);
+        paneInformacionCajonAsignado.setVisible(false);
+        paneInformacionCobroCajon.setVisible(true);
+    }
+
+    @FXML
+    private void clicBack(MouseEvent event) {
+        desactivarCajones(false);
+        paneInformacionCobroCajon.setVisible(false);
+        paneInformacionCajonAsignado.setVisible(true);
+    }
+    
+    private void desactivarCajones(boolean desactivarCajones) {
+        if(desactivarCajones) {
+            panePisoUno.setDisable(true);   
+            panePisoDos.setDisable(true);
+            panePisoTres.setDisable(true);
+            panePisoCuatro.setDisable(true);
+            paneBtnRegistarMulta.setDisable(true);
+            btnCerrarSesion.setDisable(true);
+            btnPerfil.setDisable(true);
+        }else {
+            panePisoUno.setDisable(false);   
+            panePisoDos.setDisable(false);
+            panePisoTres.setDisable(false);
+            panePisoCuatro.setDisable(false);
+            paneBtnRegistarMulta.setDisable(false);
+            btnCerrarSesion.setDisable(false);
+            btnPerfil.setDisable(false);
+            
+        }
     }
     
 }
