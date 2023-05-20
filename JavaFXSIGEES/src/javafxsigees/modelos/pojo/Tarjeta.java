@@ -12,23 +12,24 @@ public class Tarjeta {
     private int idTarjeta;
     private int numeroCajon;
     private int piso;
-    private String tipoVehiculo;
     private boolean esReservado;
     private int idEstadoCajon;
     private String nombreEstadoCajon;
+    private int idTipoVehiculo;
+    private String tipoVehiculo;
 
-    public Tarjeta(int idTarjeta, int numeroCajon, int piso, String tipoVehiculo, boolean esReservado, int idEstadoCajon, String nombreEstadoCajon) {
+    public Tarjeta() {
+    }
+
+    public Tarjeta(int idTarjeta, int numeroCajon, int piso, boolean esReservado, int idEstadoCajon, String nombreEstadoCajon, int idTipoVehiculo, String tipoVehiculo) {
         this.idTarjeta = idTarjeta;
         this.numeroCajon = numeroCajon;
         this.piso = piso;
-        this.tipoVehiculo = tipoVehiculo;
         this.esReservado = esReservado;
         this.idEstadoCajon = idEstadoCajon;
         this.nombreEstadoCajon = nombreEstadoCajon;
-    }
-    
-    public Tarjeta() {
-        
+        this.idTipoVehiculo = idTipoVehiculo;
+        this.tipoVehiculo = tipoVehiculo;
     }
 
     public int getIdTarjeta() {
@@ -55,15 +56,7 @@ public class Tarjeta {
         this.piso = piso;
     }
 
-    public String getTipoVehiculo() {
-        return tipoVehiculo;
-    }
-
-    public void setTipoVehiculo(String tipoVehiculo) {
-        this.tipoVehiculo = tipoVehiculo;
-    }
-
-    public boolean getEsReservado() {
+    public boolean isEsReservado() {
         return esReservado;
     }
 
@@ -86,6 +79,22 @@ public class Tarjeta {
     public void setNombreEstadoCajon(String nombreEstadoCajon) {
         this.nombreEstadoCajon = nombreEstadoCajon;
     }
-    
+
+    public int getIdTipoVehiculo() {
+        return idTipoVehiculo;
+    }
+
+    public void setIdTipoVehiculo(int idTipoVehiculo) {
+        this.idTipoVehiculo = idTipoVehiculo;
+    }
+
+    public String getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public void setTipoVehiculo(String tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
+    }
+
     
 }
