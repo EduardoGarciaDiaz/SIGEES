@@ -22,7 +22,7 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbxMulta" layoutX="52.0" layoutY="84.0" prefHeight="31.0" prefWidth="292.0" promptText="-Seleccione un concepto-">
+      <ComboBox fx:id="cmbxMulta" layoutX="52.0" layoutY="84.0" onAction="#clicSeleccionMulta" prefHeight="31.0" prefWidth="292.0" promptText="-Seleccione un concepto-">
          <effect>
             <Blend />
          </effect>

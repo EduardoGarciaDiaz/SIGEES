@@ -4,13 +4,27 @@
  */
 package javafxsigees.controladores;
 
+
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafxsigees.modelos.dao.DAOException;
+import javafxsigees.modelos.dao.MultaDAO;
+import javafxsigees.modelos.pojo.Multa;
+import javafxsigees.modelos.pojo.Tarjeta;
+import javafxsigees.utils.Utilidades;
 
 /**
  * FXML Controller class
@@ -22,22 +36,91 @@ public class FXMLRegistrarMultaController implements Initializable {
     @FXML
     private Label lbMontoMulta;
     @FXML
-    private ComboBox<?> cmbxMulta;
-
-    /**
-     * Initializes the controller class.
-     */
+    private ComboBox<Multa> cmbxMulta;
+    
+    private ObservableList<Multa> multas = FXCollections.observableArrayList();
+    private boolean tarjetaPerida;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Tarjeta tarjeta = new Tarjeta();
+        inicializarInformacion(tarjetaPerida, tarjeta);
+        cargarMonto();
+          cmbxMulta.valueProperty().addListener((ObservableValue<? extends Multa> observable, Multa oldValue, Multa newValue) -> {
+              if (newValue != null) {
+                  cargarMonto();
+              }
+        });
         // TODO
-    }    
+    }
+    
+    public void inicializarInformacion(boolean tarjetaPerida, Tarjeta tarjeta) {
+        tarjetaPerida=true;
+        this.tarjetaPerida = tarjetaPerida;
+        MultaDAO multaDao = new MultaDAO();
+        cargarComboMultas(multaDao);
+    }
+    
+    private void cargarComboMultas(MultaDAO multaDao) {       
+        try {           
+            multas.addAll(multaDao.concultarMultas());
+        }catch (DAOException ex) {
+            ex.printStackTrace();
+        }
+        if(tarjetaPerida) {
+            cmbxMulta.setItems(multas); 
+            cmbxMulta.setValue(multas.get(0));
+            cmbxMulta.setDisable(true);
+        }else {                      
+            cmbxMulta.setItems(multas);    
+        }
+        cargarMonto();  
+    }
+    
+    private void cargarMonto() {
+        Multa multa = cmbxMulta.getValue();
+        if(multa != null) {
+            Double monto = multa.getCantidad();
+            lbMontoMulta.setText("$ "+Double.toString(monto));
+        }else {
+            lbMontoMulta.setText("$ 0.00");
+        }        
+    }
+    
+    private void registrarMulta(int idUsuario) {
+        Multa multaNueva = new Multa();       
+        LocalDate horaActual = LocalDate.now();
+        Date date = Date.from(horaActual.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        multaNueva.setFechaHora(date);
+        multaNueva.setIdTipoMulta(cmbxMulta.getValue().getIdTipoMulta());
+        multaNueva.setIdUsuario(idUsuario);
+        MultaDAO multaDao = new MultaDAO();
+        try {
+           int respuesta = multaDao.registrarPagoDeMulta(multaNueva);
+            if(respuesta != -1) {
+                Utilidades.mostrarDialogoSimple("Registro Exitoso", "Se ha registrado el pago correctamente", Alert.AlertType.INFORMATION);
+            }else {
+                Utilidades.mostrarDialogoSimple("Error Registro", "Ocurrio un error al hacer el registro de la multa", Alert.AlertType.ERROR);
+            }
+        } catch (DAOException ex) {
+            Utilidades.mostrarDialogoSimple("Error Registro", "Ocurrio un error al hacer el registro de la multa", Alert.AlertType.ERROR);
+        }
+        
+    }
+     
+    
 
     @FXML
     private void clicConfirmar(MouseEvent event) {
+        
     }
 
     @FXML
     private void clciCancelar(MouseEvent event) {
+    }
+
+    @FXML
+    private void clicSeleccionMulta(ActionEvent event) {
     }
     
 }

@@ -22,12 +22,12 @@ public class AlquilerCajonDAO {
     private String Obtener_Cajon = "Select idAlquilerCajon, Date(fechaHoraEntrada) as fechaEntrada, Time(fechaHoraEntrada) as horaEntrada,\n" +
                                    "montoPago, alquileres_cajon.idCuota, \n" +
                                    "alquileres_cajon.idTarjeta, alquileres_cajon.idUsuario,  \n" +
-                                   "cuotas.cantidad as cuota,  usuarios.nombreUsuario as nombreUsuario from alquileres_cajon\n" +
+                                   "cuotas.cantidad as cuota,  usuarios.nombreUsuario as nombreUsuario from sigees.alquileres_cajon\n" +
                                    "inner join cuotas on alquileres_cajon.idCuota = cuotas.idCuota\n" +
                                    "inner join usuarios on alquileres_cajon.idUsuario = usuarios.idUsuario\n" +
                                    "inner join tarjetas on alquileres_cajon.idTarjeta = tarjetas.idTarjeta\n" +
                                    "Where tarjetas.numeroCajon = ? and tarjetas.piso = ? and fechaHoraSalida is null ;";
-    private String Registrar_Cajon = "Update alquileres_cajon set fechaHoraSalida = ?, montoPago = ? "+
+    private String Registrar_Cajon = "Update sigees.alquileres_cajon set fechaHoraSalida = ?, montoPago = ? "+
                                      " where idAlquilerCajon = ?";
     
     public int guardarAlquilerCajon(AlquilerCajon alquilerCajon) throws DAOException {
