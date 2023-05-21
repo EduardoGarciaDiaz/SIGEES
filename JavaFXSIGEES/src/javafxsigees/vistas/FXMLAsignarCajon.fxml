@@ -798,18 +798,18 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <Pane layoutX="31.0" layoutY="730.0" onMouseClicked="#clicBtnTarjetaPerdida" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
+            <Pane layoutX="31.0" layoutY="730.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
                <children>
-                  <Text fill="WHITE" layoutX="126.0" layoutY="36.0" onMouseClicked="#clicBtnDetener" strokeType="OUTSIDE" strokeWidth="0.0" text="Detener">
+                  <Text fill="WHITE" layoutY="37.0" onMouseClicked="#clicBtnDetener" strokeType="OUTSIDE" strokeWidth="0.0" text="Detener" textAlignment="CENTER" wrappingWidth="365.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Pane layoutX="31.0" layoutY="669.0" onMouseClicked="#clicBtnTarjetaPerdida" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: FE4343; -fx-background-radius: 15;">
+            <Pane layoutX="31.0" layoutY="665.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: FE4343; -fx-background-radius: 15;">
                <children>
-                  <Text fill="WHITE" layoutX="75.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarjeta Perdida">
+                  <Text fill="WHITE" layoutY="37.0" onMouseClicked="#clicBtnTarjetaPerdida" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarjeta Perdida" textAlignment="CENTER" wrappingWidth="365.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -902,13 +902,18 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Pane layoutX="30.0" layoutY="675.0" onMouseClicked="#clicBtnRegistraPago" prefHeight="85.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
+            <Pane layoutX="30.0" layoutY="675.0" prefHeight="85.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
                <children>
-                  <Text fill="WHITE" layoutX="79.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Pago" textAlignment="CENTER">
+                  <Text fill="WHITE" layoutX="79.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
+                  <Label alignment="CENTER" contentDisplay="TOP" layoutY="-1.0" onMouseClicked="#clicBtnRegistraPago" prefHeight="85.0" prefWidth="365.0" text="Registrar Pago">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Label fx:id="lbTotalalPago" layoutX="21.0" layoutY="592.0" prefHeight="35.0" prefWidth="220.0">
@@ -929,12 +934,13 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="paneBtnRegistarMulta" layoutX="994.0" layoutY="56.0" onMouseClicked="#clicBtnRgistrarMulta" prefHeight="41.0" prefWidth="220.0" visible="false">
+      <Pane fx:id="paneBtnRegistarMulta" layoutX="994.0" layoutY="56.0" prefHeight="41.0" prefWidth="220.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="220.0" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#clicBtnRgistrarMulta" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imvRegistarMulta" fitHeight="45.0" fitWidth="220.0" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#clicBtnRgistrarMulta" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../recursos/botonMulta.jpg" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

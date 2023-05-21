@@ -1,26 +1,25 @@
 package javafxsigees.controladores;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javafx.util.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -29,6 +28,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafxsigees.JavaFXSIGEES;
 import javafxsigees.modelos.dao.AlquilerCajonDAO;
 import javafxsigees.modelos.dao.CuotaDAO;
 import javafxsigees.modelos.dao.DAOException;
@@ -627,6 +629,8 @@ public class FXMLAsignarCajonController implements Initializable {
     private Label lbServicoGratis;
     @FXML
     private Label lbCuotaCobro;
+    @FXML
+    private ImageView imvRegistarMulta;
     
     /**
      * Initializes the controller class.
@@ -642,7 +646,7 @@ public class FXMLAsignarCajonController implements Initializable {
         //Estodebe de desaparcer y aparecer segun el usuario
         lbDisponible.setVisible(false);
         ciculoDisponible.setVisible(false);
-        paneBtnRegistarMulta.setVisible(true);
+        imvRegistarMulta.setVisible(true);
     }  
     
     public void cargarEstadoCajones(ObservableList<Node> cajones){
@@ -980,7 +984,7 @@ public class FXMLAsignarCajonController implements Initializable {
         try {
             tarjetaDAO.actualizarTarjeta(tarjeta);
         } catch (DAOException ex) {
-            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.NONE);
+            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }    
     
@@ -996,6 +1000,26 @@ public class FXMLAsignarCajonController implements Initializable {
         cargarEstadoCajones(panePisoDos.getChildren());
         cargarEstadoCajones(panePisoTres.getChildren());
         cargarEstadoCajones(panePisoCuatro.getChildren());
+    }
+    
+    private void irVentanaMultas(boolean tarjetaPerdida) {
+        try {
+            FXMLLoader accesoControlador = new FXMLLoader(JavaFXSIGEES.class.getResource("vistas/FXMLRegistrarMulta.fxml"));
+            Parent vista = accesoControlador.load();
+            FXMLRegistrarMultaController multas = accesoControlador.getController();            
+            multas.inicializarInformacion(tarjetaPerdida, tarjetaSeleccionada, 1);  
+            
+            
+            //falta agregar que se pueda mandar el usuario de uqien hace la accion          
+            
+            Stage escenarioMultas = new Stage();            
+            escenarioMultas.setScene(new Scene(vista));
+            escenarioMultas.setTitle("Multas");
+            escenarioMultas.initModality(Modality.APPLICATION_MODAL);
+            escenarioMultas.showAndWait();
+        } catch (IOException ex) {
+            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -1038,6 +1062,7 @@ public class FXMLAsignarCajonController implements Initializable {
 
     @FXML
     private void clicBtnTarjetaPerdida(MouseEvent event) {
+        irVentanaMultas(true);
     }
 
     @FXML
@@ -1081,6 +1106,7 @@ public class FXMLAsignarCajonController implements Initializable {
 
     @FXML
     private void clicBtnRgistrarMulta(MouseEvent event) {
+        irVentanaMultas(false);
     }
     
 }

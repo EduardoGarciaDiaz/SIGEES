@@ -29,8 +29,12 @@ public class MultaDAO {
                                       "tipos_multa.nombreTipoMulta as concepto, tipos_multa.cantidad as montoMulta, \n" +
                                       "usuarios.nombre as nombreUsuario from multas\n" +
                                       "inner join tipos_multa on multas.idTipoMulta = tipos_multa.idTipoMulta\n" +
-                                      "inner join usuarios on multas.idMultas = usuarios.idUsuario";
+                                      "inner join usuarios on multas.idUsuario = usuarios.idUsuario";
     private String Registrar_Pago_Multa ="Insert into sigees.multas (fechaHora, idTipoMulta, idUsuario) values (?, ?, ?);";
+    
+    private String Consultar_Tipos_Multas = "Select idTipoMulta, tipos_multa.nombreTipoMulta as concepto, \n" +
+                                            "tipos_multa.cantidad as montoMulta\n" +
+                                            "from tipos_multa";
     
     
     public ArrayList<Multa> concultarMultas() throws DAOException {
@@ -80,4 +84,22 @@ public class MultaDAO {
         return respuestaExito;
     }
     
+    public ArrayList<Multa> concultarTiposMultas() throws DAOException {
+        ArrayList<Multa> multas = new ArrayList();
+        try {
+            PreparedStatement sentencia = ConexionBD.obtenerConexionBD().prepareStatement(Consultar_Tipos_Multas);
+            ResultSet resultadoConsulta = sentencia.executeQuery();
+            while(resultadoConsulta.next()) {
+                Multa multa = new Multa();                
+                multa.setIdTipoMulta(resultadoConsulta.getInt("idTipoMulta"));       
+                multa.setNombreTipoMulta(resultadoConsulta.getString("concepto"));
+                multa.setCantidad(resultadoConsulta.getDouble("montoMulta"));                
+                multas.add(multa);
+            }
+            ConexionBD.cerrarConexionBD();
+        } catch (SQLException ex) {
+            Utilidades.mostrarDialogoSimple("Error Consulta", "Ocurrio un error al recuperar los conceptos de multas", Alert.AlertType.ERROR);
+        }
+        return multas;        
+    }
 }

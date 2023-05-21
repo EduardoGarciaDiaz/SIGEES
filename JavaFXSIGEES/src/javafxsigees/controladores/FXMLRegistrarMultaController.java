@@ -13,13 +13,14 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafxsigees.modelos.dao.DAOException;
 import javafxsigees.modelos.dao.MultaDAO;
 import javafxsigees.modelos.pojo.Multa;
@@ -40,30 +41,29 @@ public class FXMLRegistrarMultaController implements Initializable {
     
     private ObservableList<Multa> multas = FXCollections.observableArrayList();
     private boolean tarjetaPerida;
+    private int idUsuario;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Tarjeta tarjeta = new Tarjeta();
-        inicializarInformacion(tarjetaPerida, tarjeta);
-        cargarMonto();
+       
           cmbxMulta.valueProperty().addListener((ObservableValue<? extends Multa> observable, Multa oldValue, Multa newValue) -> {
               if (newValue != null) {
                   cargarMonto();
               }
         });
-        // TODO
     }
     
-    public void inicializarInformacion(boolean tarjetaPerida, Tarjeta tarjeta) {
-        tarjetaPerida=true;
+    public void inicializarInformacion(boolean tarjetaPerida, Tarjeta tarjeta, int idUsuario) {
         this.tarjetaPerida = tarjetaPerida;
+        this.idUsuario=idUsuario;
+        cargarMonto();
         MultaDAO multaDao = new MultaDAO();
         cargarComboMultas(multaDao);
     }
     
     private void cargarComboMultas(MultaDAO multaDao) {       
         try {           
-            multas.addAll(multaDao.concultarMultas());
+            multas.addAll(multaDao.concultarTiposMultas());
         }catch (DAOException ex) {
             ex.printStackTrace();
         }
@@ -88,6 +88,7 @@ public class FXMLRegistrarMultaController implements Initializable {
     }
     
     private void registrarMulta(int idUsuario) {
+        cmbxMulta.setDisable(false);
         Multa multaNueva = new Multa();       
         LocalDate horaActual = LocalDate.now();
         Date date = Date.from(horaActual.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -99,28 +100,36 @@ public class FXMLRegistrarMultaController implements Initializable {
            int respuesta = multaDao.registrarPagoDeMulta(multaNueva);
             if(respuesta != -1) {
                 Utilidades.mostrarDialogoSimple("Registro Exitoso", "Se ha registrado el pago correctamente", Alert.AlertType.INFORMATION);
+                cerrarVentanaMultas();
             }else {
                 Utilidades.mostrarDialogoSimple("Error Registro", "Ocurrio un error al hacer el registro de la multa", Alert.AlertType.ERROR);
+                cerrarVentanaMultas();
             }
         } catch (DAOException ex) {
             Utilidades.mostrarDialogoSimple("Error Registro", "Ocurrio un error al hacer el registro de la multa", Alert.AlertType.ERROR);
+            cerrarVentanaMultas();
         }
         
-    }
-     
+    } 
     
+    private void cerrarVentanaMultas() {
+        Stage escenarioPrincnipal = (Stage) cmbxMulta.getScene().getWindow();
+        Scene escena = cmbxMulta.getScene();
+        escenarioPrincnipal.close(); 
+    }
 
     @FXML
     private void clicConfirmar(MouseEvent event) {
-        
+        if(lbMontoMulta.getText().equals("$ 0.00")) {
+            Utilidades.mostrarDialogoSimple("Registro no valido", "Elige un concepto", Alert.AlertType.WARNING);
+        }else {
+            registrarMulta(idUsuario);
+        }        
     }
 
     @FXML
-    private void clciCancelar(MouseEvent event) {
+    private void clciCancelar(MouseEvent event) {        
+           cerrarVentanaMultas();
     }
 
-    @FXML
-    private void clicSeleccionMulta(ActionEvent event) {
-    }
-    
 }
