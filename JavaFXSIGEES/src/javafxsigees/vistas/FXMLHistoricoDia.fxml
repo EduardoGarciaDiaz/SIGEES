@@ -10,124 +10,140 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="840.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLHistoricoDiaController">
+<AnchorPane id="AnchorPane" prefHeight="940.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLHistoricoDiaController">
    <children>
       <Label layoutX="133.0" layoutY="23.0" text="Histórico del día" textFill="#676767">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="33.0" />
          </font>
       </Label>
-      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="20.0" layoutY="76.0" prefHeight="746.0" prefWidth="1690.0">
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="20.0" layoutY="76.0" prefHeight="851.0" prefWidth="1690.0" style="-fx-background-radius: 13;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <content>
-            <Pane prefHeight="885.0" prefWidth="1690.0" style="-fx-background-color: #FFFFFF;">
+            <Pane prefHeight="839.0" prefWidth="1692.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13;">
                <children>
-                  <Label fx:id="lbFecha" alignment="CENTER_RIGHT" layoutX="1169.0" layoutY="7.0" prefHeight="35.0" prefWidth="474.0" style="-fx-alignment: ;" text="fecha" textAlignment="RIGHT">
+                  <Label fx:id="lbFecha" alignment="CENTER_RIGHT" layoutX="1169.0" layoutY="7.0" prefHeight="35.0" prefWidth="474.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <BarChart fx:id="bchUsoPorPiso" layoutX="48.0" layoutY="61.0" prefHeight="465.0" prefWidth="650.0" title="Uso de estacionamiento por piso al día:">
+                  <BarChart fx:id="barChUsoPorPiso" layoutX="48.0" layoutY="61.0" legendVisible="false" prefHeight="493.0" prefWidth="692.0" title="Uso de estacionamiento por piso al día:">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis fx:id="usoPisoEjeX" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="usoPisoEjeY" side="LEFT" />
                     </yAxis>
                   </BarChart>
-                  <Label layoutX="806.0" layoutY="63.0" prefHeight="35.0" prefWidth="619.0" style="-fx-alignment: ;" text="Total de ganancias por uso de estacionamiento al día:" textAlignment="RIGHT">
+                  <Label layoutX="806.0" layoutY="63.0" prefHeight="35.0" prefWidth="619.0" text="Total de ganancias por uso de estacionamiento al día:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbTotalGanancias" layoutX="1435.0" layoutY="62.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbTotalGanancias" layoutX="1435.0" layoutY="62.0" prefHeight="35.0" prefWidth="240.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="806.0" layoutY="109.0" prefHeight="35.0" prefWidth="286.0" style="-fx-alignment: ;" text="Total de vehículos al día:" textAlignment="RIGHT">
+                  <Label layoutX="806.0" layoutY="126.0" prefHeight="35.0" prefWidth="286.0" text="Total de vehículos al día:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="806.0" layoutY="151.0" prefHeight="35.0" prefWidth="305.0" style="-fx-alignment: ;" text="Número de multas al día:" textAlignment="RIGHT">
+                  <Label layoutX="806.0" layoutY="168.0" prefHeight="35.0" prefWidth="305.0" text="Número de multas al día:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="805.0" layoutY="190.0" prefHeight="35.0" prefWidth="345.0" style="-fx-alignment: ;" text="Ingresos por parte de multas:" textAlignment="RIGHT">
+                  <Label layoutX="806.0" layoutY="210.0" prefHeight="35.0" prefWidth="345.0" text="Ingresos por parte de multas:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="806.0" layoutY="232.0" prefHeight="35.0" prefWidth="216.0" style="-fx-alignment: ;" text="Tarjetas perdidas: " textAlignment="RIGHT">
+                  <Label layoutX="806.0" layoutY="258.0" prefHeight="35.0" prefWidth="216.0" text="Tarjetas perdidas: " textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <BarChart fx:id="bchUsoPorPiso1" layoutX="823.0" layoutY="330.0" prefHeight="400.0" prefWidth="650.0" title="Uso de lugares al día">
+                  <BarChart fx:id="barChUsoTipoVehiculo" layoutX="828.0" layoutY="369.0" legendVisible="false" prefHeight="426.0" prefWidth="684.0" title="Uso de lugares al día">
                      <xAxis>
-                        <CategoryAxis side="BOTTOM" />
+                        <CategoryAxis fx:id="tipoVehiculoEjeX" side="BOTTOM" />
                      </xAxis>
                      <yAxis>
-                        <NumberAxis side="LEFT" />
+                        <NumberAxis fx:id="tipoVehiculoEjeY" side="LEFT" />
                      </yAxis>
                   </BarChart>
-                  <Label fx:id="lbTotalVehiculos" layoutX="1127.0" layoutY="107.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbTotalVehiculos" layoutX="1097.0" layoutY="126.0" prefHeight="35.0" prefWidth="311.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbTotalMultas" layoutX="1130.0" layoutY="150.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbTotalMultas" layoutX="1101.0" layoutY="168.0" prefHeight="35.0" prefWidth="274.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbGananciasMultas" layoutX="1147.0" layoutY="190.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbGananciasMultas" layoutX="1146.0" layoutY="210.0" prefHeight="35.0" prefWidth="296.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbTotalTarjetasPerdidas" layoutX="1021.0" layoutY="234.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="2" textAlignment="RIGHT">
+                  <Label fx:id="lbTotalTarjetasPerdidas" layoutX="1021.0" layoutY="258.0" prefHeight="35.0" prefWidth="211.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbGananciasAutomoviles" layoutX="448.0" layoutY="536.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbGananciasAutomoviles" layoutX="464.0" layoutY="610.0" prefHeight="35.0" prefWidth="233.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="102.0" layoutY="535.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por automóviles:" textAlignment="RIGHT">
+                  <Label layoutX="118.0" layoutY="609.0" prefHeight="35.0" prefWidth="298.0" text="Ingresos por automóviles:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="102.0" layoutY="577.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por motocicletas:" textAlignment="RIGHT">
+                  <Label layoutX="118.0" layoutY="651.0" prefHeight="35.0" prefWidth="298.0" text="Ingresos por motocicletas:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbGananciasMotocicletas" layoutX="448.0" layoutY="578.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbGananciasMotocicletas" layoutX="464.0" layoutY="652.0" prefHeight="35.0" prefWidth="233.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbGananciasReservados" layoutX="448.0" layoutY="623.0" prefHeight="35.0" prefWidth="211.0" style="-fx-alignment: ;" text="\$00000000" textAlignment="RIGHT">
+                  <Label fx:id="lbGananciasReservados" layoutX="464.0" layoutY="697.0" prefHeight="35.0" prefWidth="233.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="102.0" layoutY="622.0" prefHeight="35.0" prefWidth="298.0" style="-fx-alignment: ;" text="Ingresos por reservados:" textAlignment="RIGHT">
+                  <Label layoutX="118.0" layoutY="696.0" prefHeight="35.0" prefWidth="298.0" text="Ingresos por reservados:" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
                   <Separator layoutX="799.0" layoutY="98.0" prefHeight="4.0" prefWidth="822.0" />
+                  <Label fx:id="lbPiso1" layoutX="161.0" layoutY="276.0" style="-fx-alignment: center;" textAlignment="CENTER">
+                     <font>
+                        <Font name="Dubai Regular" size="18.0" />
+                     </font></Label>
+                  <Label fx:id="lbPiso2" layoutX="319.0" layoutY="276.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="lbPiso3" layoutX="473.0" layoutY="276.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="lbPiso4" layoutX="627.0" layoutY="276.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                </children>
             </Pane>
          </content>
          <effect>
-            <DropShadow color="#0000004a" height="45.88" radius="23.2175" width="48.99" />
+            <DropShadow color="#0000004a" height="38.32" radius="19.965" width="43.54" />
          </effect>
       </ScrollPane>
    </children>

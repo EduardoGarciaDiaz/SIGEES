@@ -6,18 +6,19 @@
 
 package javafxsigees.controladores;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
-import java.time.Month;
+import java.time.format.FormatStyle;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafxsigees.utils.Utilidades;
 
@@ -32,19 +33,26 @@ public class FXMLFechaHistoricoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //dpFecha.setValue(LocalDate.of(2022, Month.MAY,2));
     }    
 
     @FXML
     private void clicGenerarHistorico(ActionEvent event) {        
-        if(validarFecha()) {
-            System.out.println("Generar reporte");
-            Stage escenarioBase = (Stage) lbErrorFecha.getScene().getWindow();
-            escenarioBase.setScene(Utilidades.inicializarEscena("vistas/FXMLHistoricoDia.fxml"));
-            escenarioBase.setTitle("Histórico del día");
-            escenarioBase.setX(88);
-            escenarioBase.setY(49);
-            escenarioBase.show();
+        if (validarFecha()){
+            try {
+                FXMLLoader accesoControlador = new FXMLLoader(javafxsigees.JavaFXSIGEES.class.getResource("vistas/FXMLHistoricoDia.fxml"));
+                Parent vista = accesoControlador.load();
+                FXMLHistoricoDiaController historicoController = accesoControlador.getController();
+                historicoController.llenarDatosHistorico(fechaConsultar);
+                Stage escenarioBase = (Stage) lbErrorFecha.getScene().getWindow();
+                escenarioBase.setScene(new Scene(vista));
+                escenarioBase.setTitle("Histórico del día");
+                escenarioBase.setX(88);
+                escenarioBase.setY(15);
+                escenarioBase.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            
         }
     }
 
@@ -52,7 +60,6 @@ public class FXMLFechaHistoricoController implements Initializable {
         LocalDate hoy = LocalDate.now();
         obtenerFecha();        
         if (fechaConsultar != null && fechaConsultar.isBefore(hoy)) {
-            System.out.println("disponible: "+fechaConsultar);
             return true;
         }else{
             lbErrorFecha.setText("Seleccione una fecha válida");

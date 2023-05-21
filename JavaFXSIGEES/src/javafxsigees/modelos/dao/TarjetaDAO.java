@@ -30,7 +30,9 @@ public class TarjetaDAO {
         "inner join estados_cajon ec " +
         "on t.idEstadoCajon = ec.idEstadoCajon " +
         "inner join tipos_vehiculo tv " +
-        "on t.idTipoVehiculo = tv.idTipoVehiculo ";    
+        "on t.idTipoVehiculo = tv.idTipoVehiculo ";
+    private final String OBTENER_PISOS = "SELECT DISTINCT(piso) FROM tarjetas;";
+    
     public Tarjeta obtenerCajon(int numeroCajon, int piso) throws DAOException {
         Tarjeta tarjeta = new Tarjeta();
         tarjeta.setIdTarjeta(-1);
@@ -97,5 +99,20 @@ public class TarjetaDAO {
             throw new DAOException("Error de consulta", Codigos.ERROR_CONSULTA);
         }
         return tarjetas;
+    }
+    
+    public ArrayList<String> obtenerPisos() throws DAOException {
+        ArrayList<String> pisos = new ArrayList<>();
+        try{
+            PreparedStatement sentencia = ConexionBD.obtenerConexionBD().prepareStatement(OBTENER_PISOS);
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next()) {
+                pisos.add(resultado.getString("piso"));
+            }            
+            ConexionBD.cerrarConexionBD();
+        } catch (SQLException ex) {
+            throw new DAOException("Error de consulta", Codigos.ERROR_CONSULTA);
+        }
+        return pisos;
     }
 }

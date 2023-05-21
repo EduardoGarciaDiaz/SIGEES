@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,14 +9,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="840.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLInicioAdministradorController">
+<AnchorPane id="AnchorPane" prefHeight="940.0" prefWidth="1728.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLInicioAdministradorController">
    <children>
       <Label fx:id="lbAdministrador" layoutX="120.0" layoutY="39.0" text="Administrador" textFill="#676767" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="39.0">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="33.0" />
          </font>
       </Label>
-      <Button layoutX="934.0" layoutY="129.0" mnemonicParsing="false" onAction="#clicAdministrarUsuarios" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Usuarios" AnchorPane.bottomAnchor="461.0" AnchorPane.rightAnchor="164.0">
+      <Button layoutX="935.0" layoutY="166.0" mnemonicParsing="false" onAction="#clicAdministrarUsuarios" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Usuarios" AnchorPane.bottomAnchor="518.0" AnchorPane.rightAnchor="143.0">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="24.0" />
          </font>
@@ -26,7 +27,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="155.0" layoutY="116.0" mnemonicParsing="false" onAction="#clicAdministrarTarjetas" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Tarjetas" AnchorPane.bottomAnchor="461.0" AnchorPane.leftAnchor="155.0">
+      <Button layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#clicAdministrarTarjetas" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Tarjetas" AnchorPane.bottomAnchor="518.0" AnchorPane.leftAnchor="143.0">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
@@ -37,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="146.0" layoutY="479.0" mnemonicParsing="false" onAction="#clicAdministrarCuotas" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Cuotas" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="164.0">
+      <Button layoutX="151.0" layoutY="549.0" mnemonicParsing="false" onAction="#clicAdministrarCuotas" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Administrar Cuotas" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="143.0">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
@@ -48,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="930.0" layoutY="472.0" mnemonicParsing="false" onAction="#clicConsultarHistorico" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Consultar Histórcio del Día" AnchorPane.bottomAnchor="118.0" AnchorPane.rightAnchor="164.0">
+      <Button layoutX="930.0" layoutY="472.0" mnemonicParsing="false" onAction="#clicConsultarHistorico" onMouseEntered="#sobreBoton" onMouseExited="#fueraBoton" prefHeight="250.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13px;" text="Consultar Histórcio del Día" AnchorPane.bottomAnchor="141.0" AnchorPane.rightAnchor="143.0">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000004b" height="42.77" radius="22.44" width="48.99" />
          </effect>
@@ -59,5 +60,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1619.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="24.0">
+         <image>
+            <Image url="@../recursos/perfil.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
