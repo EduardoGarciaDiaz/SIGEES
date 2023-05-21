@@ -911,7 +911,18 @@
                   </Text>
                </children>
             </Pane>
-            <Label fx:id="lbTotalalPago" layoutX="21.0" layoutY="592.0" prefHeight="35.0" prefWidth="375.0">
+            <Label fx:id="lbTotalalPago" layoutX="21.0" layoutY="592.0" prefHeight="35.0" prefWidth="220.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbServicoGratis" layoutX="3.0" layoutY="621.0" prefHeight="35.0" prefWidth="417.0" />
+            <Label layoutX="227.0" layoutY="479.0" text="Cuota " textFill="#7e7e7e">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbCuotaCobro" layoutX="220.0" layoutY="514.0" prefHeight="35.0" prefWidth="191.0">
                <font>
                   <Font size="24.0" />
                </font>

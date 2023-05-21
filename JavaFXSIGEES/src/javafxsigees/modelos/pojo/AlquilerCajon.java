@@ -16,6 +16,8 @@ public class AlquilerCajon {
     private int idTarjeta;
     private int idUsuario;
     private String cuota;
+    private double monto;
+    private String nombreUsuario;
 
     public AlquilerCajon() {
     }
@@ -29,6 +31,19 @@ public class AlquilerCajon {
         this.idTarjeta = idTarjeta;
         this.idUsuario = idUsuario;
         this.cuota = cuota;
+    }
+
+    public AlquilerCajon(int idAlquilerCajon, Date fechaHoraInicio, Date fechaHoraSalida, double montoPago, int idCuota, int idTarjeta, int idUsuario, String cuota, double monto, String nombreUsuario) {
+        this.idAlquilerCajon = idAlquilerCajon;
+        this.fechaHoraInicio = fechaHoraInicio;
+        this.fechaHoraSalida = fechaHoraSalida;
+        this.montoPago = montoPago;
+        this.idCuota = idCuota;
+        this.idTarjeta = idTarjeta;
+        this.idUsuario = idUsuario;
+        this.cuota = cuota;
+        this.monto = monto;
+        this.nombreUsuario = nombreUsuario;
     }
 
     
@@ -94,6 +109,22 @@ public class AlquilerCajon {
 
     public void setCuota(String cuota) {
         this.cuota = cuota;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
     
     
