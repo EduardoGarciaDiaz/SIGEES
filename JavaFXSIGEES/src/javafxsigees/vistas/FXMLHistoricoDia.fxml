@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -138,7 +139,8 @@
                   <Label fx:id="lbPiso4" layoutX="627.0" layoutY="276.0" style="-fx-alignment: center;">
                      <font>
                         <Font size="18.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </content>
@@ -146,5 +148,13 @@
             <DropShadow color="#0000004a" height="38.32" radius="19.965" width="43.54" />
          </effect>
       </ScrollPane>
+      <ImageView fitHeight="33.0" fitWidth="68.0" layoutX="35.0" layoutY="26.0" onMouseClicked="#clicRegresar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/volver.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>
