@@ -6,31 +6,35 @@
 
 package javafxsigees.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafxsigees.utils.Utilidades;
 
 public class FXMLInicioAdministradorController implements Initializable {
 
     @FXML
     private Label lbAdministrador;
+    @FXML
+    private ImageView btnPerfil;
+    @FXML
+    private Pane btnCerrarSesion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+         prepararAnimacionMenu();
     }    
 
     @FXML
@@ -79,6 +83,26 @@ public class FXMLInicioAdministradorController implements Initializable {
         botonInicioAdmin.setStyle("-fx-background-color: #FFFFFF; -fx-background-radius: 13px;");
         botonInicioAdmin.setScaleX(1);
         botonInicioAdmin.setScaleY(1);
+    }
+    
+    public void prepararAnimacionMenu() {
+        TranslateTransition menuDesplegado = new TranslateTransition(new Duration(350.0), btnCerrarSesion);
+        menuDesplegado.setToX(0);
+        TranslateTransition menuCerrado = new TranslateTransition(new Duration(350.0), btnCerrarSesion);
+        btnPerfil.setOnMouseClicked((MouseEvent evt)->{
+            if (btnCerrarSesion.getTranslateX() != 0) {
+                menuDesplegado.play();
+            }else{
+                menuCerrado.setToX(318.0);
+                menuCerrado.play();
+            }
+        });
+    }
+
+    @FXML
+    private void clicCerrarSesión(MouseEvent event) {
+        Stage escenarioBase = (Stage) lbAdministrador.getScene().getWindow();
+        escenarioBase.close();
     }
 
 }

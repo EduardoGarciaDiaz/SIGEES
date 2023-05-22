@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -10,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLFechaHistoricoController">
    <children>
-      <Label layoutX="130.0" layoutY="49.0" text="Histórico del día" textFill="#676767" AnchorPane.leftAnchor="120.0">
+      <Label layoutX="120.0" layoutY="30.0" text="Histórico del día" textFill="#676767" AnchorPane.leftAnchor="120.0">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="33.0" />
          </font>
@@ -33,5 +34,10 @@
             <Font name="Dubai Regular" size="21.0" />
          </font>
       </Label>
+      <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="42.0" layoutY="38.0" onMouseClicked="#clicRegresar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/volver.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

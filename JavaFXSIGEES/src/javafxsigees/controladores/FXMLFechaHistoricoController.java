@@ -9,7 +9,6 @@ package javafxsigees.controladores;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.FormatStyle;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,8 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafxsigees.utils.Utilidades;
 
 public class FXMLFechaHistoricoController implements Initializable {
     
@@ -74,6 +73,12 @@ public class FXMLFechaHistoricoController implements Initializable {
     @FXML
     private void clicEscogerFecha(ActionEvent event) {
         lbErrorFecha.setText("");
+    }
+
+    @FXML
+    private void clicRegresar(MouseEvent event) {
+        Stage escenarioBase = (Stage) lbErrorFecha.getScene().getWindow();
+        escenarioBase.close();
     }
     
 }

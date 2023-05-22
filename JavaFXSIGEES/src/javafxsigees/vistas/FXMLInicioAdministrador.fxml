@@ -60,10 +60,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1619.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="24.0">
+      <ImageView fx:id="btnPerfil" fitHeight="67.0" fitWidth="67.0" layoutX="1619.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="24.0">
          <image>
             <Image url="@../recursos/perfil.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
+      <Pane fx:id="btnCerrarSesion" layoutX="1455.0" layoutY="98.0" onMouseClicked="#clicCerrarSesión" prefHeight="60.0" prefWidth="248.0" style="-fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.25), 25, 0.0, 0.0, 4); -fx-background-color: white; -fx-background-radius: 13;" translateX="318.0">
+         <children>
+            <Label layoutX="57.0" layoutY="13.0" text="Cerrar sesión">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
    </children>
 </AnchorPane>
