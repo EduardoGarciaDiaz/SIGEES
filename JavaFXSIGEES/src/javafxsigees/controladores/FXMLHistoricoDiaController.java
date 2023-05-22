@@ -23,6 +23,8 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafxsigees.modelos.dao.AlquilerCajonDAO;
 import javafxsigees.modelos.dao.DAOException;
 import javafxsigees.modelos.dao.MultaDAO;
@@ -217,6 +219,12 @@ public class FXMLHistoricoDiaController implements Initializable {
         } else {
              return formatoDecimal.format(valor);
         }
+    }
+
+    @FXML
+    private void clicRegresar(MouseEvent event) {
+        Stage escenarioBase = (Stage) lbFecha.getScene().getWindow();
+        escenarioBase.close();
     }
     
 
