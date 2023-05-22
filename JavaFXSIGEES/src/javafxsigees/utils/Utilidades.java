@@ -6,11 +6,19 @@
 
 package javafxsigees.utils;
 
+
 import java.io.IOException;
+import java.text.ParseException;
+
+import java.util.Date;
+
+import java.text.SimpleDateFormat;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+
 
 public class Utilidades {
     
@@ -31,6 +39,29 @@ public class Utilidades {
             System.out.println("ERROR: " + ex.getMessage());
         }
         return escena;
+    }   
+    
+    public static Date convertirStringToDate(String fechaConvertir)  {
+        try {
+            SimpleDateFormat fechaHora= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            return fechaHora.parse(fechaConvertir);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return new Date();
+    }   
+    
+    public static String convertirFechaToString(Date fechaConvertir) {
+        String fechaString = null;
+        SimpleDateFormat conver = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");                  
+        try {
+            fechaString = conver.format(fechaConvertir);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+           mostrarDialogoSimple("Error", "Error al convertir las fechas ", Alert.AlertType.WARNING);
+        }
+        return fechaString;
     }
+    
     
 }
