@@ -99,13 +99,13 @@ public class FXMLRegistrarMultaController implements Initializable {
         if(cmbxMulta.getValue().getIdTipoMulta() ==  1) {
             if(tarjetaGeneral != null){
                 desactivarCajon();
-                registrarMulta(2);
+                registrarMulta(idUsuario);
                 continuarRegistroUsoCajon();                             
             } else {
                 Utilidades.mostrarDialogoSimple("Error", "Elija un cajon u otro concepto", Alert.AlertType.ERROR);
             }
         }else {
-            registrarMulta(2);
+            registrarMulta(idUsuario);
         }
     }
     

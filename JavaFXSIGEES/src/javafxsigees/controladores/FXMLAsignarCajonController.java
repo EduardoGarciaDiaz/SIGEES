@@ -647,6 +647,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
     private Usuario usuarioSesion;
     private AlquilerCajon alquilerCajonRegistro;
     private Rectangle cajonActual;
+    private Usuario usuarioGeneral;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -657,10 +658,19 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         cargarCajones();
         
         //Estodebe de desaparcer y aparecer segun el usuario
-        lbDisponible.setVisible(false);
-        ciculoDisponible.setVisible(false);
-        imvRegistarMulta.setVisible(true);
+        
     }  
+    
+    public void inicializarRol(Usuario usuarioRol) {
+        this.usuarioGeneral = usuarioRol;
+        if(usuarioRol.getIdTipoUsuario() == 2) {
+            imvRegistarMulta.setVisible(false);
+        }else {
+            lbDisponible.setVisible(false);
+            ciculoDisponible.setVisible(false);
+            imvRegistarMulta.setVisible(true);
+        }
+    }
     
     public void cargarEstadoCajones(ObservableList<Node> cajones){
         Iterator<Node> it = cajones.iterator();
@@ -759,63 +769,64 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         Rectangle cajon = (Rectangle) event.getSource();
         cajonActual = cajon;
         tarjetaSeleccionada = obtenerInformacionCajon(cajon);
-      /* if(tarjetaSeleccionada.getIdTarjeta() == -1) {
+        if(usuarioGeneral.getIdTipoUsuario() == 2) {            
+            if(tarjetaSeleccionada.getIdTarjeta() == -1) {
             Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
             paneCajonNoSeleccionado.setVisible(true);
-        } else {
-            switch (tarjetaSeleccionada.getNombreEstadoCajon()) {
-                case "Disponible":
-                    paneCajonNoSeleccionado.setVisible(false);
-                    setInformacionCajon(tarjetaSeleccionada);
-                    paneInformacionCajon.setVisible(true);
-                    break;
-                case "Asignado":
-                    Utilidades.mostrarDialogoSimple("Accion no permitida", 
-                            "No puedes asignar un cajon asignado. Intenta con otro.", Alert.AlertType.INFORMATION);
-                    paneInformacionCajon.setVisible(false);
-                    paneCajonNoSeleccionado.setVisible(true);
-                    break;
-                case "No disponible":
-                    Utilidades.mostrarDialogoSimple("Accion no permitida", 
-                            "Este cajon no esta disponible en este momento. Intenta con otro.", Alert.AlertType.INFORMATION);
-                    paneInformacionCajon.setVisible(false);
-                    paneCajonNoSeleccionado.setVisible(true);
-                default:
-                    System.out.println("error");
-            }
-        }*/
-        
-        
-        if(tarjetaSeleccionada.getIdTarjeta() == -1) {
-            Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
-            paneCajonNoSeleccionado.setVisible(true);
+            } else {
+                switch (tarjetaSeleccionada.getNombreEstadoCajon()) {
+                    case "Disponible":
+                        paneCajonNoSeleccionado.setVisible(false);
+                        setInformacionCajon(tarjetaSeleccionada);
+                        paneInformacionCajon.setVisible(true);
+                        break;
+                    case "Asignado":
+                        Utilidades.mostrarDialogoSimple("Accion no permitida", 
+                                "No puedes asignar un cajon asignado. Intenta con otro.", Alert.AlertType.INFORMATION);
+                        paneInformacionCajon.setVisible(false);
+                        paneCajonNoSeleccionado.setVisible(true);
+                        break;
+                    case "No disponible":
+                        Utilidades.mostrarDialogoSimple("Accion no permitida", 
+                                "Este cajon no esta disponible en este momento. Intenta con otro.", Alert.AlertType.INFORMATION);
+                        paneInformacionCajon.setVisible(false);
+                        paneCajonNoSeleccionado.setVisible(true);
+                    default:
+                        System.out.println("error");
+                }
+            }   
         }else {
-            switch(tarjetaSeleccionada.getNombreEstadoCajon()) {
-                case"Disponible":
-                    Utilidades.mostrarDialogoSimple("Cajon Sin asignar", "No puedes cobrar un cajon sin asignar ", Alert.AlertType.WARNING);
-                    tarjetaSeleccionada=null; 
-                    break;
-                case "Ocupado":
-                    Utilidades.mostrarDialogoSimple("Cajon Ocupado", "No puedes cobrar un cajon que aun esta ocupado", Alert.AlertType.WARNING);
-                    tarjetaSeleccionada=null;
-                    break;
-                case"No disponible":
-                    Utilidades.mostrarDialogoSimple("Cajon No Disponible", "No puedes cobrar un cajon que no tiene Trajeta ", Alert.AlertType.WARNING);
-                    tarjetaSeleccionada=null;
-                    break;
-                case "Asignado": {
-                    AlquilerCajonDAO alquilerDAO = new AlquilerCajonDAO();   
-                    paneCajonNoSeleccionado.setVisible(false); 
-                    try {
-                        alquilerCajonRegistro = alquilerDAO.obtenerCajonAlquilado(tarjetaSeleccionada.getNumeroCajon(), tarjetaSeleccionada.getPiso());
-                        setInformacionCajonAsignado(tarjetaSeleccionada);
-                        paneInformacionCajonAsignado.setVisible(true);
-                    } catch (DAOException ex) {                        
-                       Utilidades.mostrarDialogoSimple("Error terminal:", "Ocurrio un error al caragr la informacion del cajon ", Alert.AlertType.ERROR);
-                    } 
-                }                  
+            if(tarjetaSeleccionada.getIdTarjeta() == -1) {
+            Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
+            paneCajonNoSeleccionado.setVisible(true);
+            }else {
+                switch(tarjetaSeleccionada.getNombreEstadoCajon()) {
+                    case"Disponible":
+                        Utilidades.mostrarDialogoSimple("Cajon Sin asignar", "No puedes cobrar un cajon sin asignar ", Alert.AlertType.WARNING);
+                        tarjetaSeleccionada=null; 
+                        break;
+                    case "Ocupado":
+                        Utilidades.mostrarDialogoSimple("Cajon Ocupado", "No puedes cobrar un cajon que aun esta ocupado", Alert.AlertType.WARNING);
+                        tarjetaSeleccionada=null;
+                        break;
+                    case"No disponible":
+                        Utilidades.mostrarDialogoSimple("Cajon No Disponible", "No puedes cobrar un cajon que no tiene Trajeta ", Alert.AlertType.WARNING);
+                        tarjetaSeleccionada=null;
+                        break;
+                    case "Asignado": {
+                        AlquilerCajonDAO alquilerDAO = new AlquilerCajonDAO();   
+                        paneCajonNoSeleccionado.setVisible(false); 
+                        try {
+                            alquilerCajonRegistro = alquilerDAO.obtenerCajonAlquilado(tarjetaSeleccionada.getNumeroCajon(), tarjetaSeleccionada.getPiso());
+                            setInformacionCajonAsignado(tarjetaSeleccionada);
+                            paneInformacionCajonAsignado.setVisible(true);
+                        } catch (DAOException ex) {                        
+                           Utilidades.mostrarDialogoSimple("Error terminal:", "Ocurrio un error al caragr la informacion del cajon ", Alert.AlertType.ERROR);
+                        } 
+                    }                  
+                }
             }
-        }
+        }            
     }
     
     private void setInformacionCajon(Tarjeta tarjeta) {
@@ -850,7 +861,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             String fechaAsignacion = Utilidades.convertirFechaToString(alquilerCajonRegistro.getFechaHoraInicio()).substring(0, 10);
             String horaAsignacion = Utilidades.convertirFechaToString(alquilerCajonRegistro.getFechaHoraInicio()).substring(11); 
             String fechaSalida = fechaActual.getYear()+ "-"+fechaActual.getMonthValue()+"-"+fechaActual.getDayOfMonth();            
-            String horaSalida = horaActual.getHour()-1 +":"+horaActual.getMinute()+ ":" +horaActual.getSecond();
+            String horaSalida = horaActual.getHour() +":"+horaActual.getMinute()+ ":" +horaActual.getSecond();
             lbFechaAsignacionCobro.setText(fechaAsignacion);
             lbHoraAsignacionCobro.setText(horaAsignacion);            
             lbFechaSalidaCobro.setText(fechaSalida);            
@@ -1023,14 +1034,11 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             FXMLLoader accesoControlador = new FXMLLoader(JavaFXSIGEES.class.getResource("vistas/FXMLRegistrarMulta.fxml"));
             Parent vista = accesoControlador.load();
             FXMLRegistrarMultaController multas = accesoControlador.getController();            
-            multas.inicializarInformacion(tarjetaPerdida, tarjetaSeleccionada, 1, this);  
-            
-            
-            //falta agregar que se pueda mandar el usuario de uqien hace la accion          
-            
+            multas.inicializarInformacion(tarjetaPerdida, tarjetaSeleccionada, usuarioGeneral.getIdUsuario(), this);  
             Stage escenarioMultas = new Stage();            
             escenarioMultas.setScene(new Scene(vista));
             escenarioMultas.setTitle("Multas");
+            escenarioMultas.setResizable(false);
             escenarioMultas.initModality(Modality.APPLICATION_MODAL);
             escenarioMultas.showAndWait();
         } catch (IOException ex) {
@@ -1040,6 +1048,13 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
 
     @FXML
     private void clicCerrarSesión(MouseEvent event) {
+        Stage escenario = (Stage) paneCajonNoSeleccionado.getScene().getWindow();
+        escenario.setScene(Utilidades.inicializarEscena("vistas/FXMLInisioSesion.fxml"));
+        escenario.setResizable(false);
+        escenario.setTitle("Inicio Sesion");
+        escenario.show();
+        //Stage escenarioPrincnipal = (Stage) paneCajonNoSeleccionado.getScene().getWindow();
+        //escenarioPrincnipal.close();
     }
 
     @FXML
