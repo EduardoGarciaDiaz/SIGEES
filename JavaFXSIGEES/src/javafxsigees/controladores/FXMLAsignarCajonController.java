@@ -649,6 +649,10 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
     private AlquilerCajon alquilerCajonRegistro;
     private Rectangle cajonActual;
     private Usuario usuarioGeneral;
+    @FXML
+    private Label lbTarifaActual;
+    String meses[] = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre",
+        "diciembre"};
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -830,12 +834,11 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
     private void setInformacionCajon(Tarjeta tarjeta) {
         if (tarjeta != null) {
             LocalDate fechaActual = LocalDate.now();
-            String tarifa = String.valueOf(obtenerCuotaActual().getCantidad());
             lbIdentificadorTarjeta.setText(obtenerLetraPiso(tarjeta.getPiso())+""+tarjeta.getNumeroCajon());
             lbPiso.setText(String.valueOf(tarjeta.getPiso()));
             lbTipoVehiculo.setText(tarjeta.getTipoVehiculo());            
-            lbFecha.setText(fechaActual.getDayOfMonth() + " de "+fechaActual.getMonthValue()+ " del " +fechaActual.getYear());
-            lbTarifa.setText(tarifa);
+            lbFecha.setText(fechaActual.getDayOfMonth() + " de "+meses[fechaActual.getMonthValue()-1]+ " del " +fechaActual.getYear());
+            lbTarifaActual.setText(Double.toString(obtenerCuotaActual().getCantidad()));
             setFotoTipoVehiculo(tarjetaSeleccionada);
         }
     }
