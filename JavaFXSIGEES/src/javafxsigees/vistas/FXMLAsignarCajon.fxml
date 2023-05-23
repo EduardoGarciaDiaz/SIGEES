@@ -762,7 +762,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="375.0" layoutY="12.0" onMouseClicked="#clicCancelar" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnCancelar" fitHeight="38.0" fitWidth="38.0" layoutX="375.0" layoutY="12.0" onMouseClicked="#clicCancelar" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../recursos/cancelar.png" />
                </image>
@@ -798,16 +798,17 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <Pane layoutX="31.0" layoutY="730.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
+            <Label fx:id="lbServicoGratis1" alignment="CENTER" layoutX="2.0" layoutY="776.0" prefHeight="21.0" prefWidth="417.0" text="Es necesario registra el pago" textFill="#f10000" visible="false" />
+            <Pane layoutX="31.0" layoutY="724.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: #4383FE; -fx-background-radius: 15;">
                <children>
-                  <Text fill="WHITE" layoutY="37.0" onMouseClicked="#clicBtnDetener" strokeType="OUTSIDE" strokeWidth="0.0" text="Detener" textAlignment="CENTER" wrappingWidth="365.0">
+                  <Text fill="WHITE" layoutY="36.0" onMouseClicked="#clicBtnDetener" strokeType="OUTSIDE" strokeWidth="0.0" text="Detener" textAlignment="CENTER" wrappingWidth="365.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Pane layoutX="31.0" layoutY="665.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: FE4343; -fx-background-radius: 15;">
+            <Pane fx:id="btnTrajetaPerdida" layoutX="31.0" layoutY="665.0" prefHeight="50.0" prefWidth="365.0" style="-fx-background-color: FE4343; -fx-background-radius: 15;">
                <children>
                   <Text fill="WHITE" layoutY="37.0" onMouseClicked="#clicBtnTarjetaPerdida" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarjeta Perdida" textAlignment="CENTER" wrappingWidth="365.0">
                      <font>
@@ -856,7 +857,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="61.0" layoutX="362.0" layoutY="14.0" onMouseClicked="#clicBack" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imvVolver" fitHeight="38.0" fitWidth="61.0" layoutX="362.0" layoutY="14.0" onMouseClicked="#clicBack" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../recursos/back.png.jpg" />
                </image>
