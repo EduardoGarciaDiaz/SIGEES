@@ -656,10 +656,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         prepararAnimacionMenu();
         usuarioSesion = new Usuario();
         usuarioSesion.setIdUsuario(1); 
-        cargarCajones();
-        
-        //Estodebe de desaparcer y aparecer segun el usuario
-        
+        cargarCajones();        
     }  
     
     public void inicializarRol(Usuario usuarioRol) {
@@ -798,20 +795,20 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             }   
         }else {
             if(tarjetaSeleccionada.getIdTarjeta() == -1) {
-            Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajon. ", Alert.AlertType.INFORMATION);
+            Utilidades.mostrarDialogoSimple("Tarjeta no registrada", "No se ha asignado una tarjeta al cajón. ", Alert.AlertType.INFORMATION);
             paneCajonNoSeleccionado.setVisible(true);
             }else {
                 switch(tarjetaSeleccionada.getNombreEstadoCajon()) {
                     case"Disponible":
-                        Utilidades.mostrarDialogoSimple("Cajon Sin asignar", "No puedes cobrar un cajon sin asignar ", Alert.AlertType.WARNING);
+                        Utilidades.mostrarDialogoSimple("Cajón Sin asignar", "No puedes cobrar un cajón sin asignar ", Alert.AlertType.WARNING);
                         tarjetaSeleccionada=null; 
                         break;
                     case "Ocupado":
-                        Utilidades.mostrarDialogoSimple("Cajon Ocupado", "No puedes cobrar un cajon que aun esta ocupado", Alert.AlertType.WARNING);
+                        Utilidades.mostrarDialogoSimple("Cajón Ocupado", "No puedes cobrar un cajón que aun esta ocupado", Alert.AlertType.WARNING);
                         tarjetaSeleccionada=null;
                         break;
                     case"No disponible":
-                        Utilidades.mostrarDialogoSimple("Cajon No Disponible", "No puedes cobrar un cajon que no tiene Trajeta ", Alert.AlertType.WARNING);
+                        Utilidades.mostrarDialogoSimple("Cajón No Disponible", "No puedes cobrar un cajón que no tiene Tarjeta ", Alert.AlertType.WARNING);
                         tarjetaSeleccionada=null;
                         break;
                     case "Asignado": {
@@ -822,7 +819,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
                             setInformacionCajonAsignado(tarjetaSeleccionada);
                             paneInformacionCajonAsignado.setVisible(true);
                         } catch (DAOException ex) {                        
-                           Utilidades.mostrarDialogoSimple("Error terminal:", "Ocurrio un error al caragr la informacion del cajon ", Alert.AlertType.ERROR);
+                           Utilidades.mostrarDialogoSimple("Error terminal:", "Ocurrio un error al cargar la informacion del cajón ", Alert.AlertType.ERROR);
                         } 
                     }                  
                 }
@@ -1050,12 +1047,10 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
     @FXML
     private void clicCerrarSesión(MouseEvent event) {
         Stage escenario = (Stage) paneCajonNoSeleccionado.getScene().getWindow();
-        escenario.setScene(Utilidades.inicializarEscena("vistas/FXMLInisioSesion.fxml"));
+        escenario.setScene(Utilidades.inicializarEscena("vistas/FXMLInicioSesion.fxml"));
         escenario.setResizable(false);
-        escenario.setTitle("Inicio Sesion");
+        escenario.setTitle("Inicio Sesión");
         escenario.show();
-        //Stage escenarioPrincnipal = (Stage) paneCajonNoSeleccionado.getScene().getWindow();
-        //escenarioPrincnipal.close();
     }
     
     private Date obtenerFechaActual() {
@@ -1104,7 +1099,6 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             btnCancelar.setDisable(true);
             btnTrajetaPerdida.setDisable(true);
             lbServicoGratis1.setVisible(true);      
-            //paneInformacionCajonAsignado.setVisible(true);
             paneInformacionCobroCajon.setVisible(false); 
             cargarCajones();
         }else {

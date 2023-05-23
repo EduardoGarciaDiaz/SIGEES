@@ -58,7 +58,7 @@ public class FXMLFechaHistoricoController implements Initializable {
     private boolean validarFecha() {
         LocalDate hoy = LocalDate.now();
         obtenerFecha();        
-        if (fechaConsultar != null && fechaConsultar.isBefore(hoy)) {
+        if (fechaConsultar != null && (fechaConsultar.isBefore(hoy) || fechaConsultar.isEqual(hoy))) {
             return true;
         }else{
             lbErrorFecha.setText("Seleccione una fecha válida");

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="709.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLInisioSesionEstacionamientoController">
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="709.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsigees.controladores.FXMLInicioSesionEstacionamientoController">
    <children>
       <ImageView fitHeight="599.0" fitWidth="384.0" layoutX="346.0" pickOnBounds="true" />
       <Pane layoutX="346.0" prefHeight="606.0" prefWidth="408.0" style="-fx-background-color: #C0C0C0;">

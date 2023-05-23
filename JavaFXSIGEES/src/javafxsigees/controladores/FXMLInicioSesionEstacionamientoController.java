@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxsigees.controladores;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +27,7 @@ import javafxsigees.utils.Utilidades;
  *
  * @author tristan
  */
-public class FXMLInisioSesionEstacionamientoController implements Initializable {
+public class FXMLInicioSesionEstacionamientoController implements Initializable {
 
     @FXML
     private TextField Txf_Usuario;
@@ -48,7 +41,6 @@ public class FXMLInisioSesionEstacionamientoController implements Initializable 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }  
     
     private void validarCampos(){

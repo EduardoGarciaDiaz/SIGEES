@@ -20,6 +20,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
@@ -81,6 +83,16 @@ public class FXMLHistoricoDiaController implements Initializable {
     private ArrayList<Integer> datosEjeY;
     private DecimalFormat formatoDecimal = new DecimalFormat("#.00");
     private LocalDate nuevaFecha;
+    @FXML
+    private NumberAxis usoPisoEjeY;
+    @FXML
+    private CategoryAxis usoPisoEjeX;
+    @FXML
+    private NumberAxis tipoVehiculoEjeY;
+    @FXML
+    private CategoryAxis tipoVehiculoEjeX;
+    @FXML
+    private Label lbTotalGananciasUso;
 
 
     @Override
@@ -163,11 +175,15 @@ public class FXMLHistoricoDiaController implements Initializable {
         Double ganancias;
         try {
             ganancias = new AlquilerCajonDAO().obtenerTotalGananciasDiarias(fechaHistorico);
+            ganancias = ganancias + (new MultaDAO().obtenerGananciasPorMultas(fechaHistorico));
             String totalGanancias = formatearValor(ganancias);
             String totalVehiculos = String.valueOf(new AlquilerCajonDAO().obtenerTotalVehiculosDiarios(fechaHistorico));
             String totalMultas = String.valueOf(new AlquilerCajonDAO().obtenerTotalMultasDiarias(fechaHistorico));
             String totalTarjetasPerdidas = String.valueOf(new MultaDAO().obtenerTotalTarjetasPerdidasDiarias(fechaHistorico));
+            ganancias = new AlquilerCajonDAO().obtenerTotalGananciasDiarias(fechaHistorico);
+            String totalGananciasUso = formatearValor(ganancias);
             lbTotalGanancias.setText("$ " + totalGanancias);
+            lbTotalGananciasUso.setText("$ " + totalGananciasUso);
             lbTotalVehiculos.setText(totalVehiculos);
             lbTotalMultas.setText(totalMultas);
             lbTotalTarjetasPerdidas.setText(totalTarjetasPerdidas);

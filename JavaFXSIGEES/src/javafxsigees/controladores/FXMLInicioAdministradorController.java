@@ -102,7 +102,11 @@ public class FXMLInicioAdministradorController implements Initializable {
     @FXML
     private void clicCerrarSesión(MouseEvent event) {
         Stage escenarioBase = (Stage) lbAdministrador.getScene().getWindow();
-        escenarioBase.close();
+        escenarioBase.setScene(Utilidades.inicializarEscena("vistas/FXMLInicioSesion.fxml"));
+        escenarioBase.setResizable(false);
+        escenarioBase.setTitle("Inicio Sesión");
+        escenarioBase.show();
+        
     }
 
 }

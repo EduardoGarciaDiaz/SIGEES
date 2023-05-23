@@ -29,9 +29,6 @@ public class AlquilerCajonDAO {
                                    "Where tarjetas.numeroCajon = ? and tarjetas.piso = ? and fechaHoraSalida is null ;";
     private String Registrar_Cajon = "Update sigees.alquileres_cajon set fechaHoraSalida = ?, montoPago = ? "+
                                      " where idAlquilerCajon = ?";
-    
-    //private String GUARDAR_ALQUILER_CAJON = "INSERT INTO sigees.alquileres_cajon " +
-    //        "(fechaHoraEntrada, fechaHoraSalida, montoPago, idCuota, idTarjeta, idUsuario) values (?, ?, ?, ?, ?, ?);";
     private final String OBTENER_USOS_POR_PISO = "SELECT COUNT(ac.idTarjeta) AS usoPorPiso FROM alquileres_cajon ac " +
             "INNER JOIN tarjetas t ON ac.idTarjeta = t.idTarjeta " +
             "WHERE DATE(ac.fechaHoraEntrada) = ? AND  t.piso = ?";
