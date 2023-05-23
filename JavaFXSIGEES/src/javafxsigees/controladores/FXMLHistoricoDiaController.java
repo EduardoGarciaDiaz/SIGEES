@@ -15,13 +15,14 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -57,14 +58,6 @@ public class FXMLHistoricoDiaController implements Initializable {
     @FXML
     private BarChart<String, Integer> barChUsoTipoVehiculo;
     @FXML
-    private NumberAxis usoPisoEjeY;
-    @FXML
-    private CategoryAxis usoPisoEjeX;
-    @FXML
-    private NumberAxis tipoVehiculoEjeY;
-    @FXML
-    private CategoryAxis tipoVehiculoEjeX;
-    @FXML
     private Label lbPiso1;
     @FXML
     private Label lbPiso2;
@@ -72,17 +65,27 @@ public class FXMLHistoricoDiaController implements Initializable {
     private Label lbPiso3;
     @FXML
     private Label lbPiso4;
+    @FXML
+    private Label lbTipoVehiculo1;
+    @FXML
+    private Label lbTipoVehiculo2;
+    @FXML
+    private Label lbTipoVehiculo3;
+    @FXML
+    private DatePicker dpFechaNueva;
+    @FXML
+    private Label lbErrorFecha;
     
     private String fechaHistorico;
     private ArrayList<String> datosEjeX;
     private ArrayList<Integer> datosEjeY;
     private DecimalFormat formatoDecimal = new DecimalFormat("#.00");
-    
+    private LocalDate nuevaFecha;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        //llenarDatosHistorico();
     }
     
     public void llenarDatosHistorico(LocalDate fechaConsultar) {
@@ -95,15 +98,15 @@ public class FXMLHistoricoDiaController implements Initializable {
     }
     
     public void llenarFecha(LocalDate fechaConsultar) {
+        dpFechaNueva.setValue(fechaConsultar);
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd 'de' MMMM 'de' yyyy", new Locale("es"));
         String fecha = fechaConsultar.format(formatoFecha);
-        lbFecha.setText(fecha); 
-        
+        lbFecha.setText(fecha);
     }
     
     private void iniciarGraficoUsoPorPiso() {
         try {
-            barChUsoPorPiso.setLegendVisible(true);
+            String colorGrafico = "#82A8F0";
             datosEjeX = new TarjetaDAO().obtenerPisos();
             datosEjeY = new ArrayList<>();
             for(String piso : datosEjeX) {
@@ -115,20 +118,16 @@ public class FXMLHistoricoDiaController implements Initializable {
             lbPiso2.setText(String.valueOf(datosEjeY.get(1)));
             lbPiso3.setText(String.valueOf(datosEjeY.get(2)));
             lbPiso4.setText(String.valueOf(datosEjeY.get(3)));
-            iniciarGrafico(barChUsoPorPiso, datosEjeX, datosEjeY, "Pisos");
+            iniciarGrafico(barChUsoPorPiso, datosEjeX, datosEjeY, colorGrafico);
         } catch (DAOException ex) {
             Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
         }
-        
-        
-        
     }
     
     private void iniciarGraficoUsoTipoVehiculo() {
         try {
-            barChUsoTipoVehiculo.setLegendVisible(true);
+            String colorGrafico = "#B4C8EF";
             datosEjeX = new TipoVehiculoDAO().obtenerTiposDeVehiculos();
-            
             datosEjeY = new ArrayList<>();
             for(String tipo : datosEjeX) {
                 int usoPorTipo = new AlquilerCajonDAO().obtenerUsosPorTipo(tipo, fechaHistorico, 1);
@@ -136,41 +135,28 @@ public class FXMLHistoricoDiaController implements Initializable {
             }
             datosEjeX.add("Reservados");
             datosEjeY.add(new AlquilerCajonDAO().obtenerUsosPorTipo("Vehiculo", fechaHistorico, 0));
-            iniciarGrafico(barChUsoTipoVehiculo, datosEjeX, datosEjeY, "Tipos de lugares");
+            lbTipoVehiculo1.setText(String.valueOf(datosEjeY.get(0)));
+            lbTipoVehiculo2.setText(String.valueOf(datosEjeY.get(1)));
+            lbTipoVehiculo3.setText(String.valueOf(datosEjeY.get(2)));
+            iniciarGrafico(barChUsoTipoVehiculo, datosEjeX, datosEjeY, colorGrafico);
         } catch (DAOException ex) {
             Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
     
     private void iniciarGrafico(BarChart<String, Integer> graficoBarras, ArrayList<String> datosEjeX, ArrayList<Integer> datosEjeY,
-            String leyenda) {
-        XYChart.Series<String, Integer> pisos = new XYChart.Series<>();
-        pisos.setName(leyenda);
-
+            String colorGrafico) {
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
         for(int i = 0 ; i < datosEjeX.size() ; i++) {
             XYChart.Data<String, Integer> dato = new XYChart.Data<>(datosEjeX.get(i),datosEjeY.get(i));
-            pisos.getData().add(dato);
+            series.getData().add(dato);
         }
-        
-        
-        
-        
-        /*
-        XYChart.Data<String, Integer> dato1 = new XYChart.Data<>("Piso 1", 50);
-        XYChart.Data<String, Integer> dato2 = new XYChart.Data<>("Piso 2", 10);
-        XYChart.Data<String, Integer> dato3 = new XYChart.Data<>("Piso 3", 22);
-        XYChart.Data<String, Integer> dato4 = new XYChart.Data<>("Piso 4", 50);
-        pisos.getData().addAll(dato1, dato2, dato3, dato4);
-        */
         ObservableList<XYChart.Series<String, Integer>> data = FXCollections.observableArrayList();
-        data.addAll(pisos);
+        data.addAll(series);
         graficoBarras.setData(data);
-        /*
-        dato1.getNode().setStyle("-fx-background-color: #2464DE");
-        dato2.getNode().setStyle("-fx-background-color: #2464DE");
-        dato3.getNode().setStyle("-fx-background-color: #2464DE");
-        dato4.getNode().setStyle("-fx-background-color: #2464DE");
-        */
+        for(Node nodo : graficoBarras.lookupAll(".default-color0.chart-bar")) {
+           nodo.setStyle("-fx-bar-fill: "+ colorGrafico);   
+        }   
     }
 
     private void iniciarDatosGenerales() {
@@ -186,7 +172,7 @@ public class FXMLHistoricoDiaController implements Initializable {
             lbTotalMultas.setText(totalMultas);
             lbTotalTarjetasPerdidas.setText(totalTarjetasPerdidas);
         } catch (DAOException ex) {
-            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
+            Utilidades.mostrarDialogoSimple("Oh, ou", "Ocurrió un error inesperado, porfavor inténtelo de nuevo", Alert.AlertType.ERROR);
         }
     }
 
@@ -201,15 +187,12 @@ public class FXMLHistoricoDiaController implements Initializable {
             String gananciasPorMotocicletas = formatearValor(ganancias);
             ganancias = new AlquilerCajonDAO().obtenerTotalGananciasPorTipoVehiculo(fechaHistorico, 1, 0);
             String gananciasPorReservados = formatearValor(ganancias);
-            
-            
             lbGananciasMultas.setText("$ " + gananciasPorMultas);
             lbGananciasAutomoviles.setText("$ " + gananciasPorAutomoviles);
             lbGananciasMotocicletas.setText("$ " + gananciasPorMotocicletas);
             lbGananciasReservados.setText("$ " + gananciasPorReservados);
-            
         } catch (DAOException ex) {
-            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
+            Utilidades.mostrarDialogoSimple("Oh, ou", "Ocurrió un error inesperado, porfavor inténtelo de nuevo", Alert.AlertType.ERROR);
         }
     }
     
@@ -226,7 +209,30 @@ public class FXMLHistoricoDiaController implements Initializable {
         Stage escenarioBase = (Stage) lbFecha.getScene().getWindow();
         escenarioBase.close();
     }
+
+    @FXML
+    private void clicEscogerFecha(ActionEvent event) {
+        lbErrorFecha.setText("");
+        if (validarFecha()) {
+            llenarDatosHistorico(nuevaFecha);
+        }
+        
+    }
     
+    private boolean validarFecha() {
+        LocalDate hoy = LocalDate.now();
+        nuevaFecha = obtenerFecha();        
+        if (nuevaFecha != null && nuevaFecha.isBefore(hoy)) {
+            return true;
+        }else{
+            lbErrorFecha.setText("Seleccione una fecha válida");
+            return false;
+        }
+    }
+    
+    private LocalDate obtenerFecha() {
+        return dpFechaNueva.getValue();
+    }
 
     
     

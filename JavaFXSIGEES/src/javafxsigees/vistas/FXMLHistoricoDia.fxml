@@ -27,9 +27,12 @@
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <BarChart fx:id="barChUsoPorPiso" layoutX="48.0" layoutY="61.0" legendVisible="false" prefHeight="493.0" prefWidth="692.0" title="Uso de estacionamiento por piso al día:">
+                  <BarChart fx:id="barChUsoPorPiso" alternativeColumnFillVisible="true" layoutX="48.0" layoutY="61.0" legendVisible="false" prefHeight="493.0" prefWidth="692.0" title="Uso de estacionamiento por piso al día:">
                     <xAxis>
-                      <CategoryAxis fx:id="usoPisoEjeX" side="BOTTOM" />
+                      <CategoryAxis fx:id="usoPisoEjeX" label="Pisos" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="12.0" />
+                           </tickLabelFont></CategoryAxis>
                     </xAxis>
                     <yAxis>
                       <NumberAxis fx:id="usoPisoEjeY" side="LEFT" />
@@ -67,7 +70,10 @@
                   </Label>
                   <BarChart fx:id="barChUsoTipoVehiculo" layoutX="828.0" layoutY="369.0" legendVisible="false" prefHeight="426.0" prefWidth="684.0" title="Uso de lugares al día">
                      <xAxis>
-                        <CategoryAxis fx:id="tipoVehiculoEjeX" side="BOTTOM" />
+                        <CategoryAxis fx:id="tipoVehiculoEjeX" label="Tipos de lugares" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="12.0" />
+                           </tickLabelFont></CategoryAxis>
                      </xAxis>
                      <yAxis>
                         <NumberAxis fx:id="tipoVehiculoEjeY" side="LEFT" />
@@ -123,22 +129,37 @@
                         <Font name="Microsoft New Tai Lue Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Separator layoutX="799.0" layoutY="98.0" prefHeight="4.0" prefWidth="822.0" />
+                  <Separator layoutX="799.0" layoutY="100.0" prefHeight="4.0" prefWidth="822.0" />
                   <Label fx:id="lbPiso1" layoutX="161.0" layoutY="276.0" style="-fx-alignment: center;" textAlignment="CENTER">
                      <font>
-                        <Font name="Dubai Regular" size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font></Label>
                   <Label fx:id="lbPiso2" layoutX="319.0" layoutY="276.0" style="-fx-alignment: center;">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font></Label>
                   <Label fx:id="lbPiso3" layoutX="473.0" layoutY="276.0" style="-fx-alignment: center;">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font></Label>
                   <Label fx:id="lbPiso4" layoutX="627.0" layoutY="276.0" style="-fx-alignment: center;">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTipoVehiculo1" layoutX="932.0" layoutY="563.0" prefHeight="27.0" prefWidth="80.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTipoVehiculo2" layoutX="1138.0" layoutY="563.0" prefHeight="27.0" prefWidth="69.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbTipoVehiculo3" layoutX="1347.0" layoutY="563.0" prefHeight="27.0" prefWidth="86.0" style="-fx-alignment: center;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
@@ -156,5 +177,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <DatePicker fx:id="dpFechaNueva" focusTraversable="false" layoutX="1348.0" layoutY="20.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" />
+      <Label fx:id="lbErrorFecha" layoutX="1440.0" layoutY="44.0" prefHeight="38.0" prefWidth="229.0" textAlignment="CENTER" textFill="#c62222">
+         <font>
+            <Font name="Dubai Regular" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
