@@ -22,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
@@ -29,10 +30,13 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafxsigees.modelos.dao.AlquilerCajonDAO;
+import javafxsigees.modelos.dao.CuotaDAO;
 import javafxsigees.modelos.dao.DAOException;
 import javafxsigees.modelos.dao.MultaDAO;
 import javafxsigees.modelos.dao.TarjetaDAO;
 import javafxsigees.modelos.dao.TipoVehiculoDAO;
+import javafxsigees.modelos.pojo.AlquilerCajon;
+import javafxsigees.modelos.pojo.Cuota;
 import javafxsigees.utils.Utilidades;
 
 public class FXMLHistoricoDiaController implements Initializable {
@@ -93,6 +97,12 @@ public class FXMLHistoricoDiaController implements Initializable {
     private CategoryAxis tipoVehiculoEjeX;
     @FXML
     private Label lbTotalGananciasUso;
+    @FXML
+    private PieChart pieChHorasEntrada;
+    @FXML
+    private Label lbPromedioHoras;
+    @FXML
+    private Label lbCuotaPorHora;
 
 
     @Override
@@ -105,6 +115,7 @@ public class FXMLHistoricoDiaController implements Initializable {
         llenarFecha(fechaConsultar);
         iniciarGraficoUsoPorPiso();
         iniciarGraficoUsoTipoVehiculo();
+        iniciarGraficoPastel();
         iniciarDatosGenerales();
         iniciarDatosEspecificos();
     }
@@ -170,6 +181,23 @@ public class FXMLHistoricoDiaController implements Initializable {
            nodo.setStyle("-fx-bar-fill: "+ colorGrafico);   
         }   
     }
+    
+    private void iniciarGraficoPastel() {
+        ArrayList<AlquilerCajon> horas = new ArrayList<>();
+        try {
+            pieChHorasEntrada.getData().clear();
+            horas = new AlquilerCajonDAO().obtenerHorasEntradas(fechaHistorico);
+            for(AlquilerCajon datos : horas) {
+                PieChart.Data seccion = new PieChart.Data("Hora: " + datos.getHora() + "\nIngresos: " +datos.getCantidadEntradasHora(),
+                        datos.getCantidadEntradasHora());
+                pieChHorasEntrada.getData().add(seccion);
+            }           
+            
+        } catch (DAOException ex) {
+            Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
+        }
+       
+    }
 
     private void iniciarDatosGenerales() {
         Double ganancias;
@@ -182,11 +210,17 @@ public class FXMLHistoricoDiaController implements Initializable {
             String totalTarjetasPerdidas = String.valueOf(new MultaDAO().obtenerTotalTarjetasPerdidasDiarias(fechaHistorico));
             ganancias = new AlquilerCajonDAO().obtenerTotalGananciasDiarias(fechaHistorico);
             String totalGananciasUso = formatearValor(ganancias);
+            ganancias = new AlquilerCajonDAO().obtenerPromedioHorasEstancia(fechaHistorico);
+            String promedioHoras = formatearValor(ganancias);
+            Cuota cuotaVigente = new CuotaDAO().obtenerCuotaVigente();
+            String montoCuota = formatearValor(cuotaVigente.getCantidad());
             lbTotalGanancias.setText("$ " + totalGanancias);
             lbTotalGananciasUso.setText("$ " + totalGananciasUso);
             lbTotalVehiculos.setText(totalVehiculos);
             lbTotalMultas.setText(totalMultas);
             lbTotalTarjetasPerdidas.setText(totalTarjetasPerdidas);
+            lbPromedioHoras.setText(promedioHoras + "hrs");
+            lbCuotaPorHora.setText("$ " + montoCuota);
         } catch (DAOException ex) {
             Utilidades.mostrarDialogoSimple("Oh, ou", "Ocurrió un error inesperado, porfavor inténtelo de nuevo", Alert.AlertType.ERROR);
         }
@@ -232,13 +266,12 @@ public class FXMLHistoricoDiaController implements Initializable {
         if (validarFecha()) {
             llenarDatosHistorico(nuevaFecha);
         }
-        
     }
     
     private boolean validarFecha() {
         LocalDate hoy = LocalDate.now();
         nuevaFecha = obtenerFecha();        
-        if (nuevaFecha != null && nuevaFecha.isBefore(hoy)) {
+        if (nuevaFecha != null && (nuevaFecha.isBefore(hoy) || nuevaFecha.isEqual(hoy))) {
             return true;
         }else{
             lbErrorFecha.setText("Seleccione una fecha válida");

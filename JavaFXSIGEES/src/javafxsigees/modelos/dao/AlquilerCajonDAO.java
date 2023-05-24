@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javafxsigees.modelos.ConexionBD;
 import javafxsigees.modelos.pojo.AlquilerCajon;
 import javafxsigees.utils.Codigos;
@@ -66,8 +67,16 @@ public class AlquilerCajonDAO {
             "FROM alquileres_cajon ac " +
             "INNER JOIN tipos_vehiculo tv ON t.idTipoVehiculo = tv.idTipoVehiculo " +
             "WHERE DATE(ac.fechaHoraEntrada) = ? AND t.esReservado = ?);";
-    
-            
+    private final String OBTENER_HORAS_DE_ENTRADAS = "SELECT HOUR(fechaHoraEntrada) AS hora, COUNT(*) AS cantidad " +
+            "FROM alquileres_cajon " +
+            "WHERE DATE(fechaHoraEntrada) = ? " +
+            "GROUP BY HOUR(fechaHoraEntrada) " +
+            "ORDER BY cantidad DESC;";
+    private final String OBTENER_PROMEDIO_HORAS_ESTANCIA = "SELECT AVG(TIME_TO_SEC(TIMEDIFF(fechaHoraSalida, fechaHoraEntrada))/3600) " +
+            "AS promedioHoras " +
+            "FROM alquileres_cajon " +
+            "WHERE DATE(fechaHoraEntrada) = ?";
+
     public int guardarAlquilerCajon(AlquilerCajon alquilerCajon) throws DAOException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String fechaHoraInicio = formatter.format(alquilerCajon.getFechaHoraInicio());
@@ -245,10 +254,44 @@ public class AlquilerCajonDAO {
             respuestaExito = pagoAlquilerNuevo.getIdCuota();
             ConexionBD.cerrarConexionBD();
         } catch (SQLException ex) {
-            ex.printStackTrace();
             throw new DAOException("Lo sentimos, no pudimos registrar el pago.", Codigos.ERROR_CONSULTA);
         }
         return respuestaExito;        
     }
     
+    public ArrayList<AlquilerCajon> obtenerHorasEntradas(String fechaConsultar) throws DAOException {
+        ArrayList<AlquilerCajon> horasEntradas = new ArrayList<>();
+        try {
+            PreparedStatement sentencia = ConexionBD.obtenerConexionBD().prepareStatement(OBTENER_HORAS_DE_ENTRADAS);
+            sentencia.setString(1, fechaConsultar);
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next()) {
+                AlquilerCajon alquilerCajon = new AlquilerCajon();
+                alquilerCajon.setHora(resultado.getString("hora"));
+                alquilerCajon.setCantidadEntradasHora(resultado.getInt("cantidad"));
+                
+                horasEntradas.add(alquilerCajon);
+            }
+            ConexionBD.cerrarConexionBD();
+        } catch (SQLException ex) {
+            throw new DAOException("Lo sentimos, no pudimos registrar el pago.", Codigos.ERROR_CONSULTA);
+        }
+        return horasEntradas;
+    }
+    
+    public Double obtenerPromedioHorasEstancia(String fechaConsultar) throws DAOException {
+        Double promedioHoras = 0.0;
+        try{
+            PreparedStatement sentencia = ConexionBD.obtenerConexionBD().prepareStatement(OBTENER_PROMEDIO_HORAS_ESTANCIA);
+            sentencia.setString(1, fechaConsultar);
+            ResultSet resultado = sentencia.executeQuery();
+            if (resultado.next()) {
+                promedioHoras = resultado.getDouble("promedioHoras");
+            }
+            ConexionBD.cerrarConexionBD();
+        } catch (SQLException ex) {
+            throw new DAOException("Lo sentimos, no pudimos registrar el pago.", Codigos.ERROR_CONSULTA);
+        }
+        return promedioHoras;
+    }
 }
