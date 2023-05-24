@@ -21,14 +21,17 @@
             <Font name="Microsoft New Tai Lue Bold" size="24.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpFecha" layoutX="277.0" layoutY="164.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" />
+      <DatePicker fx:id="dpFecha" layoutX="277.0" layoutY="164.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" promptText="dd/mm/aaaa" />
       <Button layoutX="291.0" layoutY="480.0" mnemonicParsing="false" onAction="#clicGenerarHistorico" prefHeight="72.0" prefWidth="330.0" style="-fx-background-color: #4383FE; -fx-background-radius: 13px;" text="Generar histórico" textFill="WHITE">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="24.0" />
          </font>
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000008f" height="47.44" radius="23.6075" width="48.99" />
-         </effect></Button>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label fx:id="lbErrorFecha" layoutX="337.0" layoutY="202.0" textAlignment="CENTER" textFill="#c62222">
          <font>
             <Font name="Dubai Regular" size="21.0" />
