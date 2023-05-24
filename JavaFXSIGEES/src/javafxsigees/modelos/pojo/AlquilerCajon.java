@@ -18,6 +18,8 @@ public class AlquilerCajon {
     private String cuota;
     private double monto;
     private String nombreUsuario;
+    private String hora;
+    private int cantidadEntradasHora;
 
     public AlquilerCajon() {
     }
@@ -126,6 +128,21 @@ public class AlquilerCajon {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
-    
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public int getCantidadEntradasHora() {
+        return cantidadEntradasHora;
+    }
+
+    public void setCantidadEntradasHora(int cantidadEntradasHora) {
+        this.cantidadEntradasHora = cantidadEntradasHora;
+    }
     
 }
