@@ -3,6 +3,8 @@ package javafxsigees.controladores;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,30 +32,33 @@ import javafxsigees.utils.Utilidades;
 public class FXMLInicioSesionEstacionamientoController implements Initializable {
 
     @FXML
-    private TextField Txf_Usuario;
+    private TextField TxfUsuario;
     @FXML
-    private Label Jl_ErrorUsuario;
+    private PasswordField pwfContraseña;
     @FXML
-    private Label Jl_ErrorCOntraseña;
+    private Label lbMensajeError;
     @FXML
-    private PasswordField Pwf_Contraseña;
-
-    
+    private Label lbusuarioVacio;
+    @FXML
+    private Label lbContraseñaVacia;
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        onFocus(TxfUsuario);
+        onFocus(pwfContraseña);
     }  
     
     private void validarCampos(){
-        String usuario = Txf_Usuario.getText();
-        String password = Pwf_Contraseña.getText();
+        String usuario = TxfUsuario.getText();
+        String password = pwfContraseña.getText();
         boolean sonValidos =true;
         if(usuario.isEmpty()){
             sonValidos = false;
-            Jl_ErrorUsuario.setText("El campo Usuario es requerido");
+            lbusuarioVacio.setText("Olvidaste ingresar tu usuario.");
         }
         if(password.length()==0){
             sonValidos= false;
-            Jl_ErrorCOntraseña.setText("El campo Contraseña es requerido");
+            lbContraseñaVacia.setText("Olvidaste ingresar tu contraseña");
         }
         if(sonValidos){
             validarCredencialesUsuario(password, usuario);
@@ -72,9 +77,7 @@ public class FXMLInicioSesionEstacionamientoController implements Initializable 
             if (usuarioRespuesta.getIdUsuario() > 0){
                 seleccionarTipoUsuario(usuarioRespuesta);
             } else{
-                Utilidades.mostrarDialogoSimple("Credenciales incorrect", 
-             "El usuario y/o constraseña  son incorrectos, profavor verifica informacion",
-             Alert.AlertType.WARNING);
+                lbMensajeError.setText("¡Usuario o contraseña incorrectos!");
             }
         } else {
             Utilidades.mostrarDialogoSimple("ERROR DE PETICION","Intentelo mas tarde",Alert.AlertType.WARNING);
@@ -117,7 +120,7 @@ public class FXMLInicioSesionEstacionamientoController implements Initializable 
             escenarioUsuarios.setResizable(false);
             escenarioUsuarios.show();
             
-            Stage escenarioPrincnipal = (Stage) Txf_Usuario.getScene().getWindow();        
+            Stage escenarioPrincnipal = (Stage) TxfUsuario.getScene().getWindow();        
             escenarioPrincnipal.close(); 
         } catch (IOException ex) {
             Utilidades.mostrarDialogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
@@ -126,9 +129,21 @@ public class FXMLInicioSesionEstacionamientoController implements Initializable 
       
     @FXML
     private void iniciarSesion(ActionEvent event) {
-        Jl_ErrorUsuario.setText("");
-        Jl_ErrorCOntraseña.setText("");
+        lbContraseñaVacia.setText("");
+        lbusuarioVacio.setText("");
         validarCampos();
+    }
+    
+    private void onFocus(TextField campo){
+        campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
+                    lbContraseñaVacia.setText("");
+                    lbusuarioVacio.setText("");
+                }
+            }
+        });
     }
     
 }

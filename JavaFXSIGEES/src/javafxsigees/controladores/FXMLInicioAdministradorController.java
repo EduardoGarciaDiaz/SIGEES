@@ -104,7 +104,8 @@ public class FXMLInicioAdministradorController implements Initializable {
         Stage escenarioBase = (Stage) lbAdministrador.getScene().getWindow();
         escenarioBase.setScene(Utilidades.inicializarEscena("vistas/FXMLInicioSesion.fxml"));
         escenarioBase.setResizable(false);
-        escenarioBase.setTitle("Inicio Sesión");
+        escenarioBase.setTitle("Inicio sesión");
+        escenarioBase.centerOnScreen();
         escenarioBase.show();
         
     }

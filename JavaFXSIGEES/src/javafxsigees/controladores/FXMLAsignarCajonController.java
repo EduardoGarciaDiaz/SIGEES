@@ -13,7 +13,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javafx.util.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.Iterator;
@@ -645,7 +644,6 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
 //</editor-fold>
    
     private Tarjeta tarjetaSeleccionada;
-    private Usuario usuarioSesion;
     private AlquilerCajon alquilerCajonRegistro;
     private Rectangle cajonActual;
     private Usuario usuarioGeneral;
@@ -656,20 +654,17 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        pnBtnPisoUno.setStyle("-fx-background-color: white");
         prepararAnimacionMenu();
-        usuarioSesion = new Usuario();
-        usuarioSesion.setIdUsuario(1); 
-        cargarCajones();        
+        cargarCajones();     
+        pnBtnPisoUno.setStyle("fx-background-color: white;");
     }  
     
     public void inicializarRol(Usuario usuarioRol) {
+        usuarioGeneral = new Usuario();
         this.usuarioGeneral = usuarioRol;
         if(usuarioRol.getIdTipoUsuario() == 2) {
             imvRegistarMulta.setVisible(false);
         }else {
-            lbDisponible.setVisible(false);
-            ciculoDisponible.setVisible(false);
             imvRegistarMulta.setVisible(true);
         }
     }
@@ -1053,6 +1048,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         escenario.setScene(Utilidades.inicializarEscena("vistas/FXMLInicioSesion.fxml"));
         escenario.setResizable(false);
         escenario.setTitle("Inicio Sesión");
+        escenario.centerOnScreen();
         escenario.show();
     }
     
@@ -1064,7 +1060,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         try {
             fechaHoraInicio = formatter.parse(
             fechaActual.getYear()+"-"+fechaActual.getMonthValue()+"-"+fechaActual.getDayOfMonth()+" "
-            +(horaActual.getHour()-1)+":"+horaActual.getMinute()+":"+horaActual.getSecond());
+            +(horaActual.getHour())+":"+horaActual.getMinute()+":"+horaActual.getSecond());
         } catch (ParseException ps) {
             
         }
@@ -1078,7 +1074,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             AlquilerCajon alquilerNuevo = new AlquilerCajon();
             alquilerNuevo.setFechaHoraInicio(obtenerFechaActual());
             alquilerNuevo.setIdTarjeta(tarjetaSeleccionada.getIdTarjeta());
-            alquilerNuevo.setIdUsuario(usuarioSesion.getIdUsuario());
+            alquilerNuevo.setIdUsuario(usuarioGeneral.getIdUsuario());
             alquilerNuevo.setIdCuota(obtenerCuotaActual().getIdCuota());
             AlquilerCajonDAO alquilerCajonDAO = new AlquilerCajonDAO();
             try {

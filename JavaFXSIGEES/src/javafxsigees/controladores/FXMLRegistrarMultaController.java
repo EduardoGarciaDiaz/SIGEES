@@ -79,8 +79,9 @@ public class FXMLRegistrarMultaController implements Initializable {
             cmbxMulta.setItems(multas); 
             cmbxMulta.setValue(multas.get(0));
             cmbxMulta.setDisable(true);
-        }else {                      
-            cmbxMulta.setItems(multas);    
+        }else {  
+            cmbxMulta.setItems(multas);  
+            cmbxMulta.getItems().remove(0);
         }
         cargarMonto();  
     }
