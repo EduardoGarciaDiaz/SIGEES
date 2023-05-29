@@ -41,7 +41,7 @@
                </font></PasswordField>
             <Label fx:id="lbMensajeError" alignment="CENTER" layoutX="110.0" layoutY="238.0" prefHeight="28.0" prefWidth="287.0" textAlignment="CENTER" textFill="#ee6666" />
             <Label fx:id="lbusuarioVacio" alignment="CENTER" layoutX="110.0" layoutY="330.0" prefHeight="21.0" prefWidth="296.0" textAlignment="CENTER" textFill="#ee6666" />
-            <Label fx:id="lbContraseñaVacia" alignment="CENTER" layoutX="108.0" layoutY="417.0" prefHeight="21.0" prefWidth="296.0" textAlignment="CENTER" />
+            <Label fx:id="lbContraseñaVacia" alignment="CENTER" layoutX="108.0" layoutY="417.0" prefHeight="21.0" prefWidth="296.0" textAlignment="CENTER" textFill="#ee6666" />
          </children>
       </Pane>
       <ImageView fitHeight="671.0" fitWidth="448.0" layoutX="487.0" pickOnBounds="true" preserveRatio="true">
