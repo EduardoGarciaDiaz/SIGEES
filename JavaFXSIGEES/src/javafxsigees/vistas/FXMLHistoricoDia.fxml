@@ -18,7 +18,7 @@
             <Font name="Microsoft New Tai Lue Bold" size="33.0" />
          </font>
       </Label>
-      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="20.0" layoutY="76.0" prefHeight="851.0" prefWidth="1690.0" style="-fx-background-radius: 13;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <ScrollPane focusTraversable="false" layoutX="20.0" layoutY="76.0" prefHeight="851.0" prefWidth="1690.0" style="-fx-background-radius: 13;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <content>
             <Pane prefHeight="1239.0" prefWidth="1667.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 13;">
                <children>
@@ -208,8 +208,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <DatePicker fx:id="dpFechaNueva" focusTraversable="false" layoutX="1348.0" layoutY="20.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" promptText="dd/mm/aaaa" />
-      <Label fx:id="lbErrorFecha" layoutX="1440.0" layoutY="44.0" prefHeight="38.0" prefWidth="229.0" textAlignment="CENTER" textFill="#c62222">
+      <DatePicker fx:id="dpFechaNueva" focusTraversable="false" layoutX="1348.0" layoutY="20.0" onAction="#clicEscogerFecha" prefHeight="31.0" prefWidth="360.0" promptText="dd/mm/aaaa" AnchorPane.rightAnchor="20.0" />
+      <Label fx:id="lbErrorFecha" layoutX="1440.0" layoutY="44.0" prefHeight="38.0" prefWidth="229.0" textAlignment="CENTER" textFill="#c62222" AnchorPane.rightAnchor="59.0">
          <font>
             <Font name="Dubai Regular" size="15.0" />
          </font>
