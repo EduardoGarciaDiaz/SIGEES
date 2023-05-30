@@ -141,6 +141,7 @@ public class FXMLInicioSesionEstacionamientoController implements Initializable 
                 if (newValue) {
                     lbContraseñaVacia.setText("");
                     lbusuarioVacio.setText("");
+                    lbMensajeError.setText("");
                 }
             }
         });
