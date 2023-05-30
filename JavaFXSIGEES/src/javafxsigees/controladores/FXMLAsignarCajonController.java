@@ -959,7 +959,8 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             if(diferenciaMinutos >= 11) {
                 calcularMonto(diferenciaMinutos+diferenciaMinutos);
             }else {
-                lbHorasTotales.setText(Long.toString(diferenciaMinutos));
+                lbHorasTotales.setText(Long.toString(diferenciaMinutos)+" m");
+                lbCuotaCobro.setText("$"+alquilerCajonRegistro.getCuota()+" por hora.");
                 lbServicoGratis.setText("Tiempo de estadia menor a 10 minutos, Servicio gratuito");
             }
         } catch (ParseException ex) {

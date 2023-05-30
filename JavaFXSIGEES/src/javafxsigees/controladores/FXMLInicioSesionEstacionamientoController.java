@@ -69,19 +69,16 @@ public class FXMLInicioSesionEstacionamientoController implements Initializable 
         UsuarioDAO usuarioDao = new UsuarioDAO();                
         Usuario usuarioRespuesta = null;
         try {
-            usuarioRespuesta = usuarioDao.consultarUsuario(password,username);
-        } catch (DAOException ex) {
-            Utilidades.mostrarDialogoSimple("ERROR DE PETICION","Intentelo mas tarde",Alert.AlertType.WARNING);
-        }
-        if (usuarioRespuesta != null){   
+            usuarioRespuesta = usuarioDao.consultarUsuario(password,username);                
             if (usuarioRespuesta.getIdUsuario() > 0){
                 seleccionarTipoUsuario(usuarioRespuesta);
             } else{
                 lbMensajeError.setText("¡Usuario o contraseña incorrectos!");
-            }
-        } else {
+            }       
+        } catch (DAOException ex) {
             Utilidades.mostrarDialogoSimple("ERROR DE PETICION","Intentelo mas tarde",Alert.AlertType.WARNING);
-        }     
+        }
+          
     }
     
     private void seleccionarTipoUsuario(Usuario usuarioTipo) {
