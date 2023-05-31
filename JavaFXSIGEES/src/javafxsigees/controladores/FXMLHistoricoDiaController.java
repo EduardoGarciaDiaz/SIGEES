@@ -246,7 +246,7 @@ public class FXMLHistoricoDiaController implements Initializable {
         }
     }
     
-    private String formatearValor(double valor) {
+    public String formatearValor(double valor) {
         if (valor == 0) {
             return "0.00";
         } else {
@@ -268,7 +268,7 @@ public class FXMLHistoricoDiaController implements Initializable {
         }
     }
     
-    private boolean validarFecha() {
+    public boolean validarFecha() {
         LocalDate hoy = LocalDate.now();
         nuevaFecha = obtenerFecha();        
         if (nuevaFecha != null && (nuevaFecha.isBefore(hoy) || nuevaFecha.isEqual(hoy))) {
@@ -279,8 +279,9 @@ public class FXMLHistoricoDiaController implements Initializable {
         }
     }
     
-    private LocalDate obtenerFecha() {
-        return dpFechaNueva.getValue();
+    public LocalDate obtenerFecha() {
+        //return LocalDate.now();
+       return dpFechaNueva.getValue();
     }
 
     

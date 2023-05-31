@@ -962,6 +962,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
                 lbHorasTotales.setText(Long.toString(diferenciaMinutos)+" m");
                 lbCuotaCobro.setText("$"+alquilerCajonRegistro.getCuota()+" por hora.");
                 lbServicoGratis.setText("Tiempo de estadia menor a 10 minutos, Servicio gratuito");
+                lbTotalalPago.setText("$ 0.00");
             }
         } catch (ParseException ex) {
             ex.printStackTrace();
@@ -1144,11 +1145,12 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         alquilerCajonPago.setIdAlquilerCajon(alquilerCajonRegistro.getIdAlquilerCajon());
         try {
             if(lbTotalalPago.getText().equals("Tiempo de estadia menor a 10 minutos, Servicio gratuito")) {
-                alquilerCajonPago.setMonto(0.0);
+                alquilerCajonPago.setMonto(0.00);
                 respuesta = alquilerDAO.registrarPagoAlquilerCajon(alquilerCajonPago);
             }else {
                 alquilerCajonPago.setMonto(alquilerCajonRegistro.getMonto());
                 respuesta = alquilerDAO.registrarPagoAlquilerCajon(alquilerCajonPago);
+                
                 paneCajonNoSeleccionado.setVisible(true);
              }       
         } catch (DAOException e) {
@@ -1162,6 +1164,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             paneInformacionCobroCajon.setVisible(false);
             desactivarCajones(false);
             bloquearElemntos(false);
+            lbServicoGratis.setText("");
             cargarCajones();
             tarjetaSeleccionada=null;
         } else {

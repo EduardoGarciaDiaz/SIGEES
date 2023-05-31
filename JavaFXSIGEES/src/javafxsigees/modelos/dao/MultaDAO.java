@@ -24,20 +24,20 @@ import javafxsigees.utils.Utilidades;
 
 public class MultaDAO {
     
-    private final String OBTENER_TARJETAS_PERDIDAS_DIARIAS = "SELECT COUNT(idMultas) AS tarjetasPerdidas FROM multas " +
+    public  final String OBTENER_TARJETAS_PERDIDAS_DIARIAS = "SELECT COUNT(idMultas) AS tarjetasPerdidas FROM multas " +
         "WHERE DATE(fechaHora) = ? AND idTipoMulta = 1";
-    private final String OBTENER_GANANCIAS_POR_MULTAS = "SELECT SUM(cantidad) AS gananciasMultas FROM multas m " +
+    public  final String OBTENER_GANANCIAS_POR_MULTAS = "SELECT SUM(cantidad) AS gananciasMultas FROM multas m " +
         "INNER JOIN tipos_Multa tm ON m.idTipoMulta = tm.idTipoMulta " +
         "WHERE DATE(m.fechaHora) = ?";
-    private String Consultar_Multas = "Select idMultas, DATE(fechaHora) as fechaMulta, Time(fechaHora) as horaMulta, "+
+   public  String Consultar_Multas = "Select idMultas, DATE(fechaHora) as fechaMulta, Time(fechaHora) as horaMulta, "+
         "multas.idTipoMulta, multas.idUsuario,\n" +
         "tipos_multa.nombreTipoMulta as concepto, tipos_multa.cantidad as montoMulta, \n" +
         "usuarios.nombre as nombreUsuario from multas\n" +
         "inner join tipos_multa on multas.idTipoMulta = tipos_multa.idTipoMulta\n" +
         "inner join usuarios on multas.idUsuario = usuarios.idUsuario";
-    private String Registrar_Pago_Multa ="Insert into sigees.multas (fechaHora, idTipoMulta, idUsuario) values (?, ?, ?);";
+    public String Registrar_Pago_Multa ="Insert into sigees.multas (fechaHora, idTipoMulta, idUsuario) values (?, ?, ?);";
 
-private String Consultar_Tipos_Multas = "Select idTipoMulta, tipos_multa.nombreTipoMulta as concepto, \n" +
+    public String Consultar_Tipos_Multas = "Select idTipoMulta, tipos_multa.nombreTipoMulta as concepto, \n" +
               "tipos_multa.cantidad as montoMulta\n" +
               "from tipos_multa";
     

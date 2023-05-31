@@ -55,7 +55,7 @@ public class FXMLFechaHistoricoController implements Initializable {
         }
     }
 
-    private boolean validarFecha() {
+    public boolean validarFecha() {
         LocalDate hoy = LocalDate.now();
         obtenerFecha();        
         if (fechaConsultar != null && (fechaConsultar.isBefore(hoy) || fechaConsultar.isEqual(hoy))) {
@@ -68,6 +68,7 @@ public class FXMLFechaHistoricoController implements Initializable {
 
     private void obtenerFecha() {
         fechaConsultar = dpFecha.getValue();
+        //fechaConsultar = LocalDate.now();
     }
 
     @FXML
