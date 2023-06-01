@@ -879,7 +879,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
             }
     }
     
-    private Cuota obtenerCuotaActual() {
+    public Cuota obtenerCuotaActual() {
         CuotaDAO cuotaDAO = new CuotaDAO();
         Cuota cuota = new Cuota();
         cuota.setIdCuota(-1);
@@ -891,7 +891,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         return cuota;
     }
 
-    private Tarjeta obtenerInformacionCajon(Rectangle cajon) {
+    public Tarjeta obtenerInformacionCajon(Rectangle cajon) {
         Tarjeta tarjeta = new Tarjeta();
         try {
             String idCajon = cajon.getId();
@@ -905,7 +905,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         return tarjeta;
     }
     
-    private int obtenerNumeroPiso(String idCajon) {
+    public int obtenerNumeroPiso(String idCajon) {
         int piso = -1;
         char letraPiso = idCajon.charAt(5);
         switch (letraPiso) {
@@ -925,7 +925,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         return piso;
     }
     
-    private char obtenerLetraPiso(int numeroPiso) {
+    public char obtenerLetraPiso(int numeroPiso) {
         char letraPiso = 'a';
         switch (numeroPiso) {
             case 1:
@@ -1013,7 +1013,7 @@ public class FXMLAsignarCajonController implements Initializable, INotificacionO
         }
     }    
     
-    private String obtenerIdCajon(Tarjeta tarjeta) {
+    public String obtenerIdCajon(Tarjeta tarjeta) {
         String piso = String.valueOf(obtenerLetraPiso(tarjeta.getPiso()));
         String numero = String.valueOf(tarjeta.getNumeroCajon());
         return "cajon" + piso + numero;
