@@ -61,7 +61,7 @@ public class AlquilerCajonDAOTest {
     public void testObtenerUsosPorPiso() throws Exception {
         System.out.println("obtenerUsosPorPiso");
         int piso = 1;
-        String fechaEntrada = LocalDate.of(2023, Month.MAY, 19).toString();
+        String fechaEntrada = LocalDate.of(2023, Month.MAY, 15).toString();
         AlquilerCajonDAO instance = new AlquilerCajonDAO();
         int result = instance.obtenerUsosPorPiso(piso, fechaEntrada);
         assertTrue("Prueba no exitosa.", result>0);
